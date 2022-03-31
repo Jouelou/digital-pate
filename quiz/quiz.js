@@ -11,7 +11,7 @@ let startButton = document.getElementById("start-quiz");
 
 startButton.addEventListener("click", () => {
   //   On détermine la quantité de questions à afficher dans ces parenthèses.
-  quiz = new QuizManager(5);
+  quiz = new QuizManager(2);
   quiz.handleInterface();
 });
 
@@ -64,7 +64,6 @@ class QuizManager {
     );
     const scoreContainer = document.querySelector("#score");
     questionContainer.innerHTML = `${question.question}`;
-
     this.timer = new Timer();
     this.showAnswers();
     this.timer.start();
@@ -116,7 +115,6 @@ class QuizManager {
   handleInterface() {
     const startButton = document.getElementById("start-quiz");
     const scoreContainer = document.querySelector("#score");
-
     if (this.isRunning === true) {
       startButton.style.display = "none";
       scoreContainer.style.display = "block";
@@ -135,7 +133,6 @@ class QuizManager {
     const questionContainer = document.querySelector(
       "#question-container h1"
     );
-    
     this.timer = null;
     answerContainer.innerHTML = "";
     questionContainer.innerHTML = `Bravo, vous avez fait ${this.score} points`;
@@ -172,21 +169,17 @@ class Timer {
     if (!this.isRunning) {
       return console.error("Timer is already stopped");
     }
-
     this.isRunning = false;
-
     this.overallTime =
       this.overallTime + this._getTimeElapsedSinceLastStart();
   }
 
   reset() {
     this.overallTime = 0;
-
     if (this.isRunning) {
       this.startTime = Date.now();
       return;
     }
-
     this.startTime = 0;
   }
 
@@ -194,11 +187,9 @@ class Timer {
     if (!this.startTime) {
       return 0;
     }
-
     if (this.isRunning) {
       return this.overallTime + this._getTimeElapsedSinceLastStart();
     }
-
     return this.overallTime;
   }
 }
