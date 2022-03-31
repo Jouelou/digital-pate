@@ -15,12 +15,11 @@ let elements = {
   scoreContainer: document.querySelector("#score"),
 
   // L'élément parent des boutons de réponse
-  answersContainer: document.querySelector("#answers-container"),
-
-}
+  answersContainer: document.querySelector("#answers-container")
+};
 
 elements.startButton.addEventListener("click", () => {
   //  On détermine la quantité de questions à afficher dans ces parenthèses.
   //  On passe également l'objet référançant les éléments qui seront utilisés dans le Quiz.
-  let quiz = new QuizManager(2, elements);
+  new QuizManager(2, elements);
 });

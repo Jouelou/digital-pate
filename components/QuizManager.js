@@ -5,7 +5,6 @@ const QUESTION_TIME = 10000;
 
 export class QuizManager {
   constructor(numQuestions, elements) {
-
     this.startButton = elements.startButton;
     this.questionContainer = elements.questionContainer;
     this.scoreContainer = elements.scoreContainer;
@@ -101,7 +100,6 @@ export class QuizManager {
   }
 
   handleInterface() {
-    
     if (this.isRunning === true) {
       this.startButton.style.display = "none";
       this.scoreContainer.style.display = "block";
