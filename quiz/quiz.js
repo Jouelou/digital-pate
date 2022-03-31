@@ -11,15 +11,8 @@ let startButton = document.getElementById("start-quiz");
 startButton.addEventListener("click", () => {
   //   On détermine la quantité de questions à afficher dans ces parenthèses.
   quiz = new QuizManager(5);
-  handleButtons();
+  quiz.handleButtons()
 });
-
-const handleButtons = () => {
-  console.log(quiz.isRunning);
-  if (quiz.isRunning === true) {
-    startButton.style.display = "none";
-  }
-};
 
 class QuizManager {
   constructor(numQuestions) {
@@ -103,6 +96,17 @@ class QuizManager {
     setTimeout(this.nextQuestion.bind(this), 1000);
   }
 
+  handleButtons() {
+    const startButton = document.getElementById("start-quiz");
+
+    if (this.isRunning === true) {
+        startButton.style.display = "none";
+      } else {
+        startButton.style.display = "flex";
+        startButton.innerHTML = "Recommencer";
+      }
+  }
+
   endQuiz() {
     this.isRunning = false;
     const answerContainer = document.querySelector(
@@ -111,7 +115,9 @@ class QuizManager {
     const questionContainer = document.querySelector(
       "#question-container h1"
     );
+
     answerContainer.innerHTML = "";
-    questionContainer.innerHTML = "Game Over";
+    questionContainer.innerHTML = `Bravo, vous avez fait ${this.score} points`;
+    this.handleButtons()
   }
 }
