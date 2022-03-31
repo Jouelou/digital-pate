@@ -1,0 +1,43 @@
+@keyframes grow {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+#app {
+    margin: 0 auto;
+    display: flex;
+    font-family: sans-serif;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 80vw;
+}
+
+section {
+    width: 80%;
+}
+.button {
+    background-color: #000000;
+    color: #ffffff;
+    display: flex; 
+    border-radius: 25px;
+    margin: 0 0 2rem 0;
+    font-weight: 600;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 75px;
+    animation: grow 0.5s ease-in-out;
+}
+
+.button.correct {
+    background-color: green;
+}
+
+.button.wrong {
+    background-color: red;
+}
