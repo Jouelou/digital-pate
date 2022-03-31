@@ -41,7 +41,9 @@ export class QuizManager {
   }
 
   nextQuestion() {
-    this.timer.reset();
+    if(this.isRunning === true) {
+      this.timer.reset();
+    }
     this.questionIndex++;
     if (this.questionIndex >= this.questions.length) {
       this.endQuiz();
@@ -58,9 +60,10 @@ export class QuizManager {
     this.showAnswers();
     this.timer.start();
     let refreshTimer = setInterval(() => {
-      this.timeRemaining = this.countdown - this.timer.getTime();
-      this.scoreContainer.innerHTML = `${this.timeRemaining}`;
-      if (this.timeRemaining <= 0) {
+      if (this.isRunning === true) {
+        this.timeRemaining = this.countdown - this.timer.getTime();
+        this.scoreContainer.innerHTML = `${this.timeRemaining}`;
+      } else {
         this.nextQuestion();
         clearInterval(refreshTimer);
       }

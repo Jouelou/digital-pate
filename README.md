@@ -1,6 +1,6 @@
 # Digital Pâté
 
-Site web présentant l'expérience AR et le quiz créés pour représenter le Pâté Vaudois de l'EPM. Ce site a été conçu dans le cadre du LAB GR+ID au sein de l'Eracom. 
+Site web présentant l'expérience AR et le quiz créés pour représenter le Pâté Vaudois de l'EPM. Ce site a été conçu dans le cadre du LAB GR+ID au sein de l'Eracom.
 
 - [Pré-requis](#pré-requis)
 - [Installation](#installation)
@@ -102,19 +102,20 @@ module.exports = defineConfig({
 
 ## Styles
 
-Tous les fichiers CSS du projet sont stockés dans le dossier /css/. 
+Tous les fichiers CSS du projet sont stockés dans le dossier /css/.
 
 Ce template contient un fichier **reset.css**. Le but de ce document est de réécrire certains comportements par défaut de nos navigateurs. Il existe de nombreux types de reset. J'ai utilisé le suivant: [https://piccalil.li/blog/a-modern-css-reset/](https://piccalil.li/blog/a-modern-css-reset/)
 
-Le fichier **global.css** regroupe des règles qui seraient appliquées à toutes le pages. 
+Le fichier **global.css** regroupe des règles qui seraient appliquées à toutes le pages.
 
-Le fichier **quiz.css** ne s'applique qu'à la page du quiz et le fichier **home.css** ne s'applique qu'à la homepage. 
+Le fichier **quiz.css** ne s'applique qu'à la page du quiz et le fichier **home.css** ne s'applique qu'à la homepage.
 
-Attention! Avec Vite, les feuilles de style sont importées dans le fichier JavaScript de la page. 
+Attention! Avec Vite, les feuilles de style sont importées dans le fichier JavaScript de la page.
 
 ## Liens
+
 Les liens internes doivent **impérativement** être relatifs. Pas de liens absolus qui commencent par "/"
 
 ## Déploiement
 
-Importez votre fork de ce répo dans Netlify. Lorsque vous ferez un push, Netlify mettra automatiquement les changements en ligne. 
+Importez votre fork de ce répo dans Netlify. Lorsque vous ferez un push, Netlify mettra automatiquement les changements en ligne.
