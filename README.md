@@ -1,4 +1,4 @@
-# Digital Paté
+# Digital Pâté
 
 Site web présentant l'expérience AR et le quiz créés pour représenter le Pâté Vaudois de l'EPM. Ce site a été conçu dans le cadre du LAB GR+ID au sein de l'Eracom. 
 
