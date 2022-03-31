@@ -5,6 +5,7 @@ Site web présentant l'expérience AR et le quiz créés pour représenter le P�
 - [Pré-requis](#pré-requis)
 - [Installation](#installation)
 - [Vite](#vite)
+- [Données du Quiz](#données-du-quiz)
 - [Composants](#composants)
 - [Ajouter des pages](#ajouter-des-pages)
 - [CSS](#css)
