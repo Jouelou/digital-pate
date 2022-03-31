@@ -1,43 +1,58 @@
 @keyframes grow {
-    from {
-        transform: scale(0);
-    }
-    to {
-        transform: scale(1);
-    }
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+* {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
 }
 
 #app {
-    margin: 0 auto;
-    display: flex;
-    font-family: sans-serif;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    width: 80vw;
+  margin: 0 auto;
+  display: flex;
+  font-family: sans-serif;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 80vw;
 }
 
 section {
-    width: 80%;
+  width: 80%;
 }
+
+#question {
+  margin: 0 0 1rem 0;
+}
+
 .button {
-    background-color: #000000;
-    color: #ffffff;
-    display: flex; 
-    border-radius: 25px;
-    margin: 0 0 2rem 0;
-    font-weight: 600;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 75px;
-    animation: grow 0.5s ease-in-out;
+  align-items: center;
+  animation: grow 0.5s ease-in-out;
+  background-color: #000000;
+  border-radius: 25px;
+  color: #ffffff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 600;
+  margin: 0 0 2rem 0;
+  padding: 1rem;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
 }
 
 .button.correct {
-    background-color: green;
+  background-color: green;
+  animation: sympa 0.5s ease-in-out;
 }
 
 .button.wrong {
-    background-color: red;
+  background-color: red;
 }
