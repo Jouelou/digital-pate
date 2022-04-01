@@ -21,5 +21,6 @@ let elements = {
 elements.startButton.addEventListener("click", () => {
   //  On détermine la quantité de questions à afficher dans ces parenthèses.
   //  On passe également l'objet référançant les éléments qui seront utilisés dans le Quiz.
-  new QuizManager(2, elements);
+  let quiz = new QuizManager(5, elements);
+  quiz.init();
 });

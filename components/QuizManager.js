@@ -1,7 +1,8 @@
 import { sampleSize } from "lodash";
 import { Timer } from "./Timer";
+import questionData from "../quiz/data/questions.json";
 
-const QUESTION_TIME = 10000;
+const QUESTION_TIME = 3000;
 
 export class QuizManager {
   constructor(numQuestions, elements) {
@@ -11,63 +12,63 @@ export class QuizManager {
     this.answersContainer = elements.answersContainer;
 
     this.numQuestions = numQuestions;
-    this.questions = this.init();
+    this.questions = sampleSize(questionData, this.numQuestions);
     this.questionIndex = 0;
     this.countdown = QUESTION_TIME;
     this.timeRemaining = QUESTION_TIME;
+    this.timer = new Timer();
+
     this.score = 0;
-    this.timer = null;
+
     this.isRunning = true;
     this.questionAnswered = false;
   }
 
   init() {
-    this.getQuestions().then((questions) => {
-      this.questions = questions;
-      this.handleInterface();
-      this.showQuestion();
-    });
+    this.handleInterface();
+    this.showQuestion();
   }
 
-  async getQuestions() {
-    return fetch("../quiz/data/questions.json")
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        const questions = sampleSize(data, this.numQuestions);
-        return questions;
-      });
-  }
+  // In case we use API
 
-  nextQuestion() {
-    if(this.isRunning === true) {
-      this.timer.reset();
-    }
-    this.questionIndex++;
-    if (this.questionIndex >= this.questions.length) {
-      this.endQuiz();
-    } else {
-      this.showQuestion();
-    }
-  }
+  // init() {
+  //   this.getQuestions().then((questions) => {
+  //     this.questions = questions;
+  //     this.handleInterface();
+  //     this.showQuestion();
+  //   });
+  // }
+
+  // async getQuestions() {
+  //   return fetch("../quiz/data/questions.json")
+  //     .then((response) => {
+  //       return response.json();
+  //     })
+  //     .then((data) => {
+  //       const questions = sampleSize(data, this.numQuestions);
+  //       return questions;
+  //     });
+  // }
 
   showQuestion() {
     this.questionAnswered = false;
     const question = this.questions[this.questionIndex];
     this.questionContainer.innerHTML = `${question.question}`;
-    this.timer = new Timer();
     this.showAnswers();
-    this.timer.start();
-    let refreshTimer = setInterval(() => {
-      if (this.isRunning === true) {
-        this.timeRemaining = this.countdown - this.timer.getTime();
-        this.scoreContainer.innerHTML = `${this.timeRemaining}`;
-      } else {
+    if (this.questionIndex === 0) {
+      this.score = 0;
+      this.timer.start();
+    }
+    let timerInterval = setInterval(() => {
+      this.scoreContainer.innerHTML = `${this.timeRemaining}`;
+      this.timeRemaining = this.countdown - this.timer.getTime();
+      if (this.timeRemaining <= 0) {
+        this.timer.stop();
         this.nextQuestion();
-        clearInterval(refreshTimer);
+        clearInterval(timerInterval);
+      } else {
       }
-    }, 100);
+    }, 10);
   }
 
   showAnswers() {
@@ -85,6 +86,19 @@ export class QuizManager {
       });
       this.answersContainer.appendChild(answerElement);
     });
+  }
+
+  nextQuestion() {
+    if (this.isRunning === true) {
+      this.timer.reset();
+      this.timer.start();
+    }
+    this.questionIndex++;
+    if (this.questionIndex >= this.questions.length) {
+      this.endQuiz();
+    } else {
+      this.showQuestion();
+    }
   }
 
   validateAnswer(answer, el) {
@@ -115,8 +129,9 @@ export class QuizManager {
 
   endQuiz() {
     this.isRunning = false;
-    this.timer = null;
     this.answersContainer.innerHTML = "";
+    this.timer.stop();
+    this.timer.reset();
     this.questionContainer.innerHTML = `Bravo, vous avez fait ${this.score} points`;
     this.handleInterface();
   }
