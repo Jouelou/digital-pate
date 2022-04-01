@@ -33,6 +33,10 @@ section {
   margin: 0 0 1rem 0;
 }
 
+#restart-button {
+  display: none;
+} 
+
 .button {
   align-items: center;
   animation: grow 0.5s ease-in-out;

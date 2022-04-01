@@ -4,9 +4,12 @@ import "../css/reset.css";
 import "../css/global.css";
 import "../css/quiz.css";
 
+let quiz;
+
 let elements = {
-  // L'élément contenant le bouton "Start" et "Recommencer"
+  // L'élément contenant le bouton "Start"
   startButton: document.querySelector("#start-button"),
+  restartButton: document.querySelector("#restart-button"),
 
   // L'élément dans lequel est affiché la question
   questionContainer: document.querySelector("#question-container h1"),
@@ -18,9 +21,13 @@ let elements = {
   answersContainer: document.querySelector("#answers-container")
 };
 
-elements.startButton.addEventListener("click", () => {
-  //  On détermine la quantité de questions à afficher dans ces parenthèses.
-  //  On passe également l'objet référançant les éléments qui seront utilisés dans le Quiz.
-  let quiz = new QuizManager(5, elements);
+const instaciateQuiz = () => {
+  let quiz = new QuizManager(3, elements);
   quiz.init();
-});
+}
+
+
+elements.startButton.addEventListener("click", instaciateQuiz);
+
+
+elements.restartButton.addEventListener("click", instaciateQuiz);
