@@ -28,6 +28,4 @@ const instaciateQuiz = () => {
 
 
 elements.startButton.addEventListener("click", instaciateQuiz);
-
-
 elements.restartButton.addEventListener("click", instaciateQuiz);

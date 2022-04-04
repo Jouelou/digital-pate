@@ -54,7 +54,6 @@ section {
 
 .button.correct {
   background-color: green;
-  animation: sympa 0.5s ease-in-out;
 }
 
 .button.wrong {

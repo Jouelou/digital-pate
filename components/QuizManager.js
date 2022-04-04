@@ -143,7 +143,6 @@ export class QuizManager {
     } else {
       this.scoreContainer.style.display = "none";
       this.restartButton.style.display = "flex";
-
     }
   }
 

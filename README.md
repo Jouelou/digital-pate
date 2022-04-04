@@ -46,8 +46,6 @@ Chaque page doit avoir un fichier JavaScript qui lui est associé. le fichier **
 <script type="module" src="./quiz.js"></script>
 ```
 
-Le but de cette de démarche est d'éviter de charger du JavaScript inutile par page, connaissant les limitations de Tor en termes de vitesse de chargement.
-
 ## Composants
 
 Du code qui serait partagé entre les pages peuvent être implémentés dans des fichiers séparés qui seraient ensuite importés là où c'est nécessaire. Référez-vous à la documentation de l'instruction [export](https://developer.mozilla.org/fr/docs/web/javascript/reference/statements/export). Ces composants réutilisables seront stockés dans le dossier **components**.
