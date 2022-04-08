@@ -15,7 +15,7 @@ let elements = {
   questionContainer: document.querySelector("#question-container h1"),
 
   // L'élément dans lequel est affiché le score
-  scoreContainer: document.querySelector("#score"),
+  scoreContainer: document.querySelector("#score-container"),
 
   // L'élément parent des boutons de réponse
   answersContainer: document.querySelector("#answers-container")

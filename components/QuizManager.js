@@ -1,8 +1,9 @@
 import { sampleSize } from "lodash";
 import { Timer } from "./Timer";
+import confetti from "canvas-confetti";
 import questionData from "../quiz/data/questions.json";
 
-const QUESTION_TIME = 2000;
+const QUESTION_TIME = 20000;
 
 export class QuizManager {
   constructor(numQuestions, elements) {
@@ -62,10 +63,11 @@ export class QuizManager {
     this.questionContainer.innerHTML = `${question.question}`;
 
     let questionCountdown = setInterval(() => {
-      console.log(this.timeRemaining);
-      this.scoreContainer.innerHTML = `${this.timeRemaining}`;
+      this.scoreContainer.innerHTML = `<p>${Math.round(
+        this.timeRemaining / 1000
+      )}</p>`;
       this.timeRemaining = this.countdown - this.timer.getTime();
-      if(this.questionAnswered) {
+      if (this.questionAnswered) {
         clearInterval(questionCountdown);
       }
       if (this.timeRemaining <= 0) {
@@ -111,6 +113,11 @@ export class QuizManager {
       // C'est ici qu'on calcule le score en fonction du temps restant.
       this.score = this.score + 1 * this.timeRemaining;
       el.classList.add("correct");
+      confetti({
+        particleCount: 500,
+        startVelocity: 50,
+        spread: 360
+      });
     } else {
       el.classList.add("wrong");
     }
@@ -120,7 +127,6 @@ export class QuizManager {
   }
 
   nextQuestion() {
-
     if (this.isRunning === true) {
       this.timer.reset();
       this.timer.start();
@@ -138,7 +144,7 @@ export class QuizManager {
   handleInterface() {
     if (this.isRunning === true) {
       this.startButton.style.display = "none";
-      this.scoreContainer.style.display = "block";
+      this.scoreContainer.style.display = "flex";
       this.restartButton.style.display = "none";
     } else {
       this.scoreContainer.style.display = "none";

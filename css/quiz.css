@@ -30,12 +30,35 @@ section {
 }
 
 #question {
-  margin: 0 0 1rem 0;
+  margin: 0 0 2rem 0;
+  text-align: center;
 }
+
+#score-container {
+  align-items: center;
+  background: #000000;
+  border-radius: 50%;
+  display: none;
+  justify-content: center;
+  height: 100px;
+  margin-bottom: 2rem;
+  width: 100px;
+}
+
+#score-container p {
+  color: #ffffff;
+  font-size: 2rem;
+  font-weight: 600;
+  margin: 0;
+  text-align: center;
+}
+
 
 #restart-button {
   display: none;
-} 
+}
+
+
 
 .button {
   align-items: center;

@@ -1,380 +1,53 @@
 [
   {
-    "question": "Q1",
+    "question": "Le pâté est-il casher?",
     "answers": [
       {
-        "text": "A1",
+        "text": "Oui",
+        "correct": false
+      },
+      {
+        "text": "peut-être",
         "correct": true
       },
       {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
+        "text": "ça non alors",
         "correct": false
       }
-    ],
-    "correct": "A1"
+    ]
   },
   {
-    "question": "Q2",
+    "question": "D'où vient le pâté?",
     "answers": [
       {
-        "text": "A1",
-        "correct": false
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q1",
-    "answers": [
-      {
-        "text": "A1",
+        "text": "Personne ne sait",
         "correct": true
       },
       {
-        "text": "A2",
+        "text": "Du livre de recette du père du Major Davel, retrouvé brulé brulé par les Bernois en 1895",
         "correct": false
       },
       {
-        "text": "A3",
+        "text": "De chez nous",
         "correct": false
       }
-    ],
-    "correct": "A1"
+    ]
   },
   {
-    "question": "Q3",
+    "question": "Quels sont les ingrédients du pâté vaudois",
     "answers": [
       {
-        "text": "A1",
+        "text": "Personne ne sait",
         "correct": true
       },
       {
-        "text": "A2",
+        "text": "Vous ne préférez pas savoir",
         "correct": false
       },
       {
-        "text": "A3",
+        "text": "De bien bonnes choses",
         "correct": false
       }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q4",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q1",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q5",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q5",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q6",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q7",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q8",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q9",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q10",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q11",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q12",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q13",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q14",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q15",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q16",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q17",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
-  },
-  {
-    "question": "Q18",
-    "answers": [
-      {
-        "text": "A1",
-        "correct": true
-      },
-      {
-        "text": "A2",
-        "correct": false
-      },
-      {
-        "text": "A3",
-        "correct": false
-      }
-    ],
-    "correct": "A1"
+    ]
   }
 ]
