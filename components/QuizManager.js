@@ -10,7 +10,7 @@ export class QuizManager {
     this.startButton = elements.startButton;
     this.restartButton = elements.restartButton;
     this.questionContainer = elements.questionContainer;
-    this.scoreContainer = elements.scoreContainer;
+    this.timerContainer = elements.timerContainer;
     this.answersContainer = elements.answersContainer;
 
     this.numQuestions = numQuestions;
@@ -63,7 +63,7 @@ export class QuizManager {
     this.questionContainer.innerHTML = `${question.question}`;
 
     let questionCountdown = setInterval(() => {
-      this.scoreContainer.innerHTML = `<p>${Math.round(
+      this.timerContainer.innerHTML = `<p>${Math.round(
         this.timeRemaining / 1000
       )}</p>`;
       this.timeRemaining = this.countdown - this.timer.getTime();
@@ -144,10 +144,10 @@ export class QuizManager {
   handleInterface() {
     if (this.isRunning === true) {
       this.startButton.style.display = "none";
-      this.scoreContainer.style.display = "flex";
+      this.timerContainer.style.display = "flex";
       this.restartButton.style.display = "none";
     } else {
-      this.scoreContainer.style.display = "none";
+      this.timerContainer.style.display = "none";
       this.restartButton.style.display = "flex";
     }
   }
@@ -180,7 +180,7 @@ export class QuizManager {
         requestAnimationFrame(launchConfetti);
       }
     });
-    
+
     launchConfetti();
   }
 }
