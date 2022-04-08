@@ -1,4 +1,4 @@
-import { sampleSize } from "lodash";
+import { sampleSize, shuffle } from "lodash";
 import { Timer } from "./Timer";
 import confetti from "canvas-confetti";
 import questionData from "../quiz/data/questions.json";
@@ -81,7 +81,7 @@ export class QuizManager {
   }
 
   showAnswers() {
-    const answers = this.questions[this.questionIndex].answers;
+    const answers = shuffle(this.questions[this.questionIndex].answers);
 
     this.answersContainer.innerHTML = "";
 
