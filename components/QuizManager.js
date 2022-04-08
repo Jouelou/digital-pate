@@ -116,7 +116,8 @@ export class QuizManager {
       confetti({
         particleCount: 500,
         startVelocity: 50,
-        spread: 360
+        spread: 360,
+        colors: ["#02F58F", "#ffffff"]
       });
     } else {
       el.classList.add("wrong");
@@ -159,7 +160,7 @@ export class QuizManager {
     this.handleInterface();
 
     let confettiEnd = Date.now() + 1 * 1000;
-    let confettiColors = ["#A2C23E", "#ffffff"];
+    let confettiColors = ["#02F58F", "#ffffff"];
 
     const launchConfetti = (() => {
       confetti({

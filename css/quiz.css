@@ -15,6 +15,7 @@
 }
 
 body {
+  background: var(--gris);
   overflow: hidden;
 }
 
@@ -41,8 +42,10 @@ section {
 
 #timer-container {
   align-items: center;
-  background: #000000;
+  background: var(--blanc);
+  border: solid var(--noir) 1px;
   border-radius: 50%;
+  color: var(--noir);
   display: none;
   justify-content: center;
   height: 100px;
@@ -53,7 +56,6 @@ section {
 }
 
 #timer-container p {
-  color: #ffffff;
   font-size: 2rem;
   font-weight: 600;
   margin: 0;
@@ -70,12 +72,12 @@ section {
 .button {
   align-items: center;
   animation: grow 0.5s ease-in-out;
-  background-color: #000000;
-  border-radius: 25px;
-  color: #ffffff;
+  background: var(--blanc);
+  border: solid var(--noir) 1px;
+  border-radius: 2px;
   cursor: pointer;
   display: flex;
-  font-weight: 600;
+  font-weight: 400;
   margin: 0 0 2rem 0;
   padding: 1rem;
   justify-content: center;
@@ -83,9 +85,9 @@ section {
 }
 
 .button.correct {
-  background-color: green;
+  background-color: var(--vert);
 }
 
 .button.wrong {
-  background-color: red;
+  background-color: var(--rose);
 }
