@@ -157,5 +157,29 @@ export class QuizManager {
     this.answersContainer.innerHTML = "";
     this.questionContainer.innerHTML = `Bravo, vous avez fait ${this.score} points`;
     this.handleInterface();
+
+    let confettiEnd = Date.now() + 4 * 1000;
+    let confettiColors = ["#bb0000", "#ffffff"];
+
+    (function frame() {
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: confettiColors
+      });
+      confetti({
+        particleCount: 2,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1 },
+        colors: confettiColors
+      });
+
+      if (Date.now() < confettiEnd) {
+        requestAnimationFrame(frame);
+      }
+    })();
   }
 }
