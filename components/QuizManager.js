@@ -54,7 +54,7 @@ export class QuizManager {
 
   showQuestion() {
     this.questionAnswered = false;
-
+    this.isRunning = true;
     if (!this.timer.isRunning) {
       this.timer.start();
     }
@@ -158,28 +158,29 @@ export class QuizManager {
     this.questionContainer.innerHTML = `Bravo, vous avez fait ${this.score} points`;
     this.handleInterface();
 
-    let confettiEnd = Date.now() + 4 * 1000;
-    let confettiColors = ["#bb0000", "#ffffff"];
+    let confettiEnd = Date.now() + 1 * 1000;
+    let confettiColors = ["#A2C23E", "#ffffff"];
 
-    (function frame() {
+    const launchConfetti = (() => {
       confetti({
-        particleCount: 2,
+        particleCount: 10,
         angle: 60,
         spread: 55,
         origin: { x: 0 },
         colors: confettiColors
       });
       confetti({
-        particleCount: 2,
+        particleCount: 10,
         angle: 120,
         spread: 55,
         origin: { x: 1 },
         colors: confettiColors
       });
-
-      if (Date.now() < confettiEnd) {
-        requestAnimationFrame(frame);
+      if (confettiEnd > Date.now() && this.isRunning === false) {
+        requestAnimationFrame(launchConfetti);
       }
-    })();
+    });
+    
+    launchConfetti();
   }
 }
