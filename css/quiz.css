@@ -19,6 +19,14 @@ body {
   overflow: hidden;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+
 #app {
   margin: 0 auto;
   display: flex;
@@ -76,15 +84,13 @@ body {
 
 #answer-panel-container {
   align-items: center;
-  visibility: hidden;
   background: rgba(50,50,50,0.5);
-  display: flex;
+  display: none;
   font-weight: 800;
   height: 100vh;
   justify-content: center;
   width: 100vw;
   position: fixed;
-  opacity: 0;
   transition: opacity 0.3s ease-in-out;
 }
 

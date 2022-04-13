@@ -1,4 +1,4 @@
-import { once, sampleSize, shuffle } from "lodash";
+import { once, over, sampleSize, shuffle } from "lodash";
 import { Timer } from "./Timer";
 import confetti from "canvas-confetti";
 import questionData from "../quiz/data/questions.json";
@@ -8,6 +8,7 @@ const QUESTION_TIME = 20000;
 export class QuizManager {
   constructor(numQuestions, elements) {
     // Interface
+
     this.startButton = elements.startButton;
     this.restartButton = elements.restartButton;
 
@@ -19,6 +20,15 @@ export class QuizManager {
     this.startCountdownContainer = elements.startCountdownContainer;
     this.timerContainer = elements.timerContainer;
 
+    this.elements = [
+      elements.startButton,
+      elements.restartButton,
+      elements.questionContainer,
+      elements.answersContainer,
+      elements.answerPanelContainer,
+      elements.startCountdownContainer,
+      elements.timerContainer
+    ];
     // Questions
     this.numQuestions = numQuestions;
     this.questions = sampleSize(questionData, this.numQuestions);
@@ -33,25 +43,17 @@ export class QuizManager {
     this.score = 0;
 
     // State
+    this.Starting = Symbol("Starting");
+    this.Countdown = Symbol("Countdown");
+    this.Asking = Symbol("Asking");
+    this.Answered = Symbol("Answered");
+    this.Over = Symbol("Over");
 
-    // TODO Rewrite state management, this is horrible
-    this.isStarting = false;
-    this.isRunning = false;
-    this.isOver = false;
-    this.questionAnswered = false;
-  }
-
-  init() {
-    this.isStarting = false;
-    this.isRunning = true;
-    this.isOver = false;
-    this.showQuestion();
-    this.handleInterface();
+    this.state = this.Starting;
   }
 
   startCountdown() {
-    this.isStarting = true;
-
+    this.state = this.Countdown;
     let startCountdown = new Timer();
     startCountdown.start();
 
@@ -60,11 +62,10 @@ export class QuizManager {
         Math.ceil(startCountdown.getTime() / 1000 - 4)
       );
       if (startCountdown.getTime() >= 3000) {
-        this.init();
+        this.showQuestion();
         clearInterval(startTimer);
       }
     }, 10);
-
     this.handleInterface();
   }
 
@@ -90,8 +91,8 @@ export class QuizManager {
   // }
 
   showQuestion() {
-    this.questionAnswered = false;
-    this.isRunning = true;
+    this.state = this.Asking;
+
     if (!this.timer.isRunning) {
       this.timer.start();
     }
@@ -104,7 +105,7 @@ export class QuizManager {
         this.timeRemaining / 1000
       )}</p>`;
       this.timeRemaining = this.countdown - this.timer.getTime();
-      if (this.questionAnswered) {
+      if (this.state == this.Answered) {
         clearInterval(questionCountdown);
       }
       if (this.timeRemaining <= 0) {
@@ -133,8 +134,8 @@ export class QuizManager {
       this.answersContainer.appendChild(answerElement);
 
       answerElement.addEventListener("click", () => {
-        if (!this.questionAnswered) {
-          this.questionAnswered = true;
+        if (this.state !== this.Answered) {
+          this.state = this.Answered;
           this.validateAnswer(answerElement.innerHTML, answerElement);
         }
       });
@@ -176,8 +177,10 @@ export class QuizManager {
     let textElement =
       this.answerPanelContainer.querySelector("#answer-panel p");
 
-    titleElement.innerHTML = this.questions[this.questionIndex].panel.title;
-    textElement.innerHTML = this.questions[this.questionIndex].panel.body;
+    titleElement.innerHTML =
+      this.questions[this.questionIndex].panel.title;
+    textElement.innerHTML =
+      this.questions[this.questionIndex].panel.body;
 
     this.answerPanelContainer
       .querySelector("#answer-panel .button")
@@ -208,9 +211,7 @@ export class QuizManager {
   }
 
   endQuiz() {
-    this.isRunning = false;
-    this.isOver = true;
-    this.questionAnswered = false;
+    this.state = this.Over;
 
     this.answersContainer.innerHTML = "";
     this.questionContainer.innerHTML = `${this.endMessage()}, vous avez fait ${
@@ -257,38 +258,62 @@ export class QuizManager {
   }
 
   handleInterface() {
-    if (this.isStarting) {
-      this.startButton.style.display = "none";
-      this.timerContainer.style.display = "none";
-      this.startCountdownContainer.style.display = "block";
-      this.questionContainer.style.display = "none";
-    }
-    if (this.isRunning) {
-      this.questionContainer.style.display = "flex";
-      this.startButton.style.display = "none";
-      this.timerContainer.style.display = "flex";
-      this.startCountdownContainer.style.display = "none";
+    console.log(this.state);
+
+    const startingElements = [
+      this.startButton,
+      this.questionContainer
+    ];
+
+    const countdownElements = [this.startCountdownContainer];
+
+    const askingElements = [
+      this.questionContainer,
+      this.answersContainer,
+      this.timerContainer
+    ];
+
+    const answeredElements = [
+      this.questionContainer,
+      this.answersContainer,
+      this.timerContainer,
+      this.answerPanelContainer
+    ];
+
+    const overElements = [this.questionContainer, this.restartButton];
+
+    switch (this.state) {
+      case this.Starting:
+        toggleStateElement(this.elements, startingElements);
+        break;
+
+      case this.Countdown:
+        toggleStateElement(this.elements, countdownElements);
+        break;
+
+      case this.Asking:
+        toggleStateElement(this.elements, askingElements);
+        break;
+
+      case this.Answered:
+        toggleStateElement(this.elements, answeredElements);
+        break;
+
+      case this.Over:
+        toggleStateElement(this.elements, overElements);
+        break;
     }
 
-    if (!this.isRunning && !this.isStarting) {
-      this.questionContainer.style.display = "flex";
-      this.timerContainer.style.display = "none";
-      this.answerPanelContainer.style.display = "hidden";
-      this.answerPanelContainer.style.opacity = "0";
-    }
-
-    if (this.questionAnswered) {
-      this.answerPanelContainer.style.visibility = "visible";
-      this.answerPanelContainer.style.opacity = "1";
-    } else {
-      this.answerPanelContainer.style.visibility = "hidden";
-      this.answerPanelContainer.style.opacity = "0";
-    }
-
-    if (this.isOver) {
-      this.restartButton.style.display = "flex";
-    } else {
-      this.restartButton.style.display = "none";
+    function toggleStateElement(elements, stateElements) {
+      elements.forEach((el) => {
+        if (stateElements.includes(el)) {
+          el.classList.remove("hidden");
+          el.classList.add("visible");
+        } else {
+          el.classList.remove("visible");
+          el.classList.add("hidden");
+        }
+      });
     }
   }
 }
