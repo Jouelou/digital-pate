@@ -4,8 +4,6 @@ import "../css/reset.css";
 import "../css/global.css";
 import "../css/quiz.css";
 
-let quiz;
-
 let elements = {
   // L'élément contenant le bouton "Start"
   startButton: document.querySelector("#start-button"),
@@ -16,14 +14,14 @@ let elements = {
 
   // L'élément dans lequel est affiché le score
   timerContainer: document.querySelector("#timer-container"),
-
+  startCountdownContainer: document.querySelector("#start-countdown-container"),
   // L'élément parent des boutons de réponse
   answersContainer: document.querySelector("#answers-container")
 };
 
 const instaciateQuiz = () => {
   let quiz = new QuizManager(3, elements);
-  quiz.init();
+  quiz.startCountdown();
 }
 
 

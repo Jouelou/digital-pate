@@ -7,29 +7,65 @@ const QUESTION_TIME = 20000;
 
 export class QuizManager {
   constructor(numQuestions, elements) {
+
+    // Interface
     this.startButton = elements.startButton;
     this.restartButton = elements.restartButton;
+
     this.questionContainer = elements.questionContainer;
-    this.timerContainer = elements.timerContainer;
     this.answersContainer = elements.answersContainer;
 
+    this.startCountdownContainer = elements.startCountdownContainer;
+    this.timerContainer = elements.timerContainer;
+
+    // Questions
     this.numQuestions = numQuestions;
     this.questions = sampleSize(questionData, this.numQuestions);
     this.questionIndex = 0;
+
+    // Timers
     this.countdown = QUESTION_TIME;
     this.timeRemaining = QUESTION_TIME;
     this.timer = new Timer();
 
+    // Score
     this.score = 0;
 
-    this.isRunning = true;
+    // State
+    this.isStarting = false;
+    this.isRunning = false;
     this.questionAnswered = false;
   }
 
   init() {
+    this.isStarting = false;
+    this.isRunning = true;
     this.handleInterface();
     this.showQuestion();
+
   }
+
+  startCountdown() {
+    this.isStarting = true;
+
+    let startCountdown = new Timer();
+    let startCountdownTime = 3000;
+
+    startCountdown.start();
+
+    this.handleInterface();
+    let startTimer =  setInterval(() => {
+      this.startCountdownContainer.innerHTML = Math.abs(Math.ceil(startCountdown.getTime() / 1000 - 4));
+      if(startCountdown.getTime() >= startCountdownTime) {
+        this.init();
+        clearInterval(startTimer);
+      }
+    }, 10)
+  }
+
+
+
+
 
   // In case we use API
 
@@ -143,13 +179,25 @@ export class QuizManager {
   }
 
   handleInterface() {
+    if(this.isStarting === true) {
+      this.startButton.style.display = "none";
+      this.timerContainer.style.display = "none";
+      this.restartButton.style.display = "none";
+      this.startCountdownContainer.style.display = "block";
+      this.questionContainer.style.display = "none";
+    }
     if (this.isRunning === true) {
       this.startButton.style.display = "none";
       this.timerContainer.style.display = "flex";
       this.restartButton.style.display = "none";
-    } else {
-      this.timerContainer.style.display = "none";
+      this.startCountdownContainer.style.display = "none";
+    } 
+      
+    if(!this.isRunning && !this.isStarting) {
       this.restartButton.style.display = "flex";
+      this.questionContainer.style.display = "flex"
+      this.timerContainer.style.display = "none";
+
     }
   }
 

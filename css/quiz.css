@@ -40,6 +40,15 @@ section {
   text-align: center;
 }
 
+#start-countdown-container {
+  display: none;
+  left: 50%;
+  font-size: 5rem;
+  font-weight: 800;
+  position: fixed;
+  transform: translateX(-50%);
+}
+
 #timer-container {
   align-items: center;
   background: var(--blanc);
@@ -51,8 +60,7 @@ section {
   height: 100px;
   margin-bottom: 2rem;
   width: 100px;
-  animation: grow 0.5s  ease-in-out;
-
+  animation: grow 0.5s ease-in-out;
 }
 
 #timer-container p {
@@ -62,12 +70,9 @@ section {
   text-align: center;
 }
 
-
 #restart-button {
   display: none;
 }
-
-
 
 .button {
   align-items: center;
