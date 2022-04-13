@@ -143,7 +143,6 @@ export class QuizManager {
   }
 
   validateAnswer(answer, el) {
-    this.isRunning = false;
     this.timer.stop();
     this.timer.reset();
     if (
