@@ -5,12 +5,11 @@ import { Timer } from "./Timer";
 import confetti from "canvas-confetti";
 import questionData from "../quiz/data/questions.json";
 
-const QUESTION_TIME = 20000;
+const QUESTION_TIME = 10000;
 
 export class QuizManager {
   constructor(numQuestions, elements) {
     // Interface
-
     this.startButton = elements.startButton;
     this.restartButton = elements.restartButton;
     this.questionContainer = elements.questionContainer;
@@ -18,6 +17,9 @@ export class QuizManager {
     this.answerPanelContainer = elements.answerPanelContainer;
     this.startCountdownContainer = elements.startCountdownContainer;
     this.timerContainer = elements.timerContainer;
+
+    // On met chacun des éléments dans un tableau histoire de pouvoir faire une comparaison
+    // dans la fonction handleInterface(). Il y a probablement une façon plus élégante de faire ça.
     this.elements = [
       elements.startButton,
       elements.restartButton,
@@ -33,7 +35,7 @@ export class QuizManager {
     this.questions = sampleSize(questionData, this.numQuestions);
     this.questionIndex = 0;
 
-    // Timers
+    // Question Timer
     this.countdown = QUESTION_TIME;
     this.timeRemaining = QUESTION_TIME;
     this.timer = new Timer();
@@ -42,6 +44,7 @@ export class QuizManager {
     this.score = 0;
 
     // State
+    // Documentation Symbol: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
     this.Starting = Symbol("Starting");
     this.Countdown = Symbol("Countdown");
     this.Asking = Symbol("Asking");
@@ -53,6 +56,7 @@ export class QuizManager {
 
   startCountdown() {
     this.state = this.Countdown;
+
     let startCountdown = new Timer();
     startCountdown.start();
 
@@ -60,6 +64,8 @@ export class QuizManager {
       this.startCountdownContainer.innerHTML = Math.abs(
         Math.ceil(startCountdown.getTime() / 1000 - 4)
       );
+
+      // C'est ici qu'on règle le temps de countdown de départ. 3000 = 3 secondes.
       if (startCountdown.getTime() >= 3000) {
         this.showQuestion();
         clearInterval(startTimer);
@@ -69,18 +75,16 @@ export class QuizManager {
   }
 
   showQuestion() {
-    document.querySelector(":root").style.setProperty('--shadow-color', ' 155deg 100% 28%');
-
     this.state = this.Asking;
 
-    if (!this.timer.isRunning) {
-      this.timer.start();
-    }
+    this.timer.reset();
+    this.timer.start();
 
     const question = this.questions[this.questionIndex];
     this.questionContainer.innerHTML = `${question.question}`;
 
     let questionCountdown = setInterval(() => {
+      // Cette petite formule affiche le temps restant pour la question en secondes.
       this.timerContainer.innerHTML = `<p>${Math.round(
         this.timeRemaining / 1000
       )}</p>`;
@@ -95,6 +99,13 @@ export class QuizManager {
       }
     }, 10);
 
+    // À chaque nouvelle question on reset la couleur des box-shadows
+    // (variable css --shadow-color). Si on ne fauit pas ça, la couleur reste
+    // rouge si la réponse est fausse et qu'on passeà la question suivante.
+    document
+      .querySelector(":root")
+      .style.setProperty("--shadow-color", " 155deg 100% 28%");
+
     this.showAnswers();
   }
 
@@ -105,17 +116,20 @@ export class QuizManager {
 
     this.answersContainer.innerHTML = "";
 
-    // C'est ici qu'on créé les boutons de réponse. On utilise une boucle for pour créer autant de boutons qu'il y a de réponses.
+    // C'est ici qu'on créé les boutons de réponse.
+    // On utilise une boucle pour créer autant de boutons qu'il y a de réponses.
+    // Les éléments sont créés directement dans le js.
     answers.forEach((answer) => {
       let answerElement = document.createElement("div");
       answerElement.classList.add("button");
       answerElement.innerHTML = answer.text;
-      // On ajoute l'élément créé comme enfant du "answers container".
+
+      // On ajoute l'élément créé comme enfant du "answers container" qui se trouve,
+      // lui, dans le HTML.
       this.answersContainer.appendChild(answerElement);
 
       answerElement.addEventListener("click", () => {
         if (this.state !== this.Answered) {
-          this.state = this.Answered;
           this.validateAnswer(answerElement.innerHTML, answerElement);
         }
       });
@@ -124,8 +138,11 @@ export class QuizManager {
   }
 
   validateAnswer(answer, el) {
+    this.state = this.Answered;
+
     this.timer.stop();
     this.timer.reset();
+
     if (
       this.questions[this.questionIndex].answers.find(
         (a) => a.text === answer
@@ -133,7 +150,12 @@ export class QuizManager {
     ) {
       // C'est ici qu'on calcule le score en fonction du temps restant.
       this.score = this.score + 1 * this.timeRemaining;
+
+      // Si la réponse est juste, on ajoute la classe .correct au bouton de réponse.
       el.classList.add("correct");
+
+      // On balance des confettis si la réponse est juste. 
+      // Voici la documentation de la librairie canvas-confetti: https://github.com/catdad/canvas-confetti
       confetti({
         particleCount: 500,
         startVelocity: 50,
@@ -141,17 +163,26 @@ export class QuizManager {
         colors: ["#02F58F", "#ffffff"]
       });
     } else {
-      document.querySelector(":root").style.setProperty('--shadow-color', ' 0deg 51% 42%');
+      document
+        .querySelector(":root")
+        .style.setProperty("--shadow-color", " 0deg 51% 42%");
+
+      // Si la réponse est fausse, on ajoute la classe .wrong au bouton de réponse.
       el.classList.add("wrong");
     }
 
-    // C'est ici qu'on détermine le petit delay avant de passer à la question suivante. 1000 = 1 seconde.
     this.showAnswerPanel();
   }
 
   showAnswerPanel() {
+
+    // C'est ici qu'est défini le petit retard entre la validation de la question
+    // et l'affichage du panel donnant plus d'informations.
     setTimeout(this.handleInterface.bind(this), 1000);
-    // this.handleInterface();
+
+    // Il faut que l'élément correspondant à answerPanelContainer aie un <h1>, un <p>
+    // et un élément avec la classe .button pour que ceci fonctionne. On pourrait
+    // rendre ceci plus cohérent avec le reste de la logique de l'app.
     let titleElement = this.answerPanelContainer.querySelector(
       "#answer-panel h1"
     );
@@ -166,13 +197,13 @@ export class QuizManager {
       this.questions[this.questionIndex].panel.title;
     textElement.innerHTML =
       this.questions[this.questionIndex].panel.body;
-      console.log(this.questionIndex + "/" + this.numQuestions);
+    console.log(this.questionIndex + "/" + this.numQuestions);
 
+    // C'est ici qu'on détermine le texte du bouton du panel
     if (this.questionIndex === this.numQuestions - 1) {
       button.innerHTML = "Voir les résultats";
     } else {
       button.innerHTML = "Prochaine question";
-
     }
 
     this.answerPanelContainer
@@ -189,10 +220,9 @@ export class QuizManager {
   }
 
   nextQuestion() {
-    if (this.state === this.Asking) {
-      this.timer.reset();
-      this.timer.start();
-    }
+
+    // C'est ici que se trouve la logique qui permet de passer à la question
+    // suivante, ou mettre fin à la partie. 
     this.questionIndex++;
     console.log(this.questionIndex);
 
@@ -204,11 +234,22 @@ export class QuizManager {
   }
 
   endQuiz() {
-    document.querySelector(":root").style.setProperty('--shadow-color', ' 155deg 100% 28%');
 
     this.state = this.Over;
 
+    // On reset la couleur des box-shadows (variable css --shadow-color). 
+    // Si on ne fait pas ça, la couleur reste rouge si la réponse est fausse et 
+    // qu'on est passé à l'écran de résultats.
+    document
+      .querySelector(":root")
+      .style.setProperty("--shadow-color", " 155deg 100% 28%");
+
+
     this.answersContainer.innerHTML = "";
+
+    // C'est ici qu'on affiche le texte de l'écran de fin de partie. Le score est
+    // calculé dans validateAnswer() et le mot de "félicitations" (ou pas) est
+    // défini selon le score final dans la fonction endMessage()
     this.questionContainer.innerHTML = `${this.endMessage()}, vous avez fait ${
       this.score
     } points`;
@@ -216,6 +257,8 @@ export class QuizManager {
     let confettiEnd = Date.now() + 1 * 1000;
     let confettiColors = ["#02F58F", "#ffffff"];
 
+
+    // On balance des confettis quoi qu'il se passe à la fin de la partie.
     const launchConfetti = () => {
       confetti({
         particleCount: 10,
@@ -241,6 +284,8 @@ export class QuizManager {
   }
 
   endMessage() {
+
+    // À recalibrer selon le ton et les scores possibles dans le jeu.
     let message;
     if (this.score < 1000) {
       message = "Monstre nul";
@@ -253,8 +298,14 @@ export class QuizManager {
   }
 
   handleInterface() {
-    console.log(this.state);
 
+    // C'est ici que se trouve la logique qui permet de changer l'interface
+    // en fonction de l'état de l'application.
+    // Les éléments nécessaires à chaque phase sont mis dans leur propre tableau. 
+    // On compare ensuite l'ensemble des éléments au tableau correspondant à chaque phase.
+    // Les éléments présents dans les deux reçoivent la classe .visible, les autres la classe .hidden.
+    // Il y a probablement un façon plus élégante de faire ça.
+  
     const startingElements = [
       this.startButton,
       this.questionContainer

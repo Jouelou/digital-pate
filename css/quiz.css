@@ -20,138 +20,324 @@ body {
 }
 
 #app {
-  margin: 0 auto;
+  /* Display */
   display: flex;
-  font-family: sans-serif;
-  min-height: 100vh;
-  min-height: -webkit-fill-available;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+
+  /* Box Model */
+  margin: 0 auto;
+  min-height: 100vh;
+  min-height: -webkit-fill-available;
   width: 90vw;
-}
 
-#start-countdown-container {
-  display: none;
-  left: 50%;
-  font-size: 5rem;
-  font-weight: 800;
-  position: fixed;
-  transform: translateX(-50%);
-}
+  /* Positionnement */
 
-#start-countdown-container.visible {
-  display: block;
+  /* Typographie */
+  font-family: sans-serif;
+
+  /* Couleur */
+  /* Animation */
 }
 
 #section {
+  /* Display */
+  /* Box Model */
   width: 80%;
+
+  /* Positionnement */
+  /* Typographie */
+  /* Couleur */
+  /* Animation */
 }
 
+/* --- COUNTDOWN DE DEBUT DE PARTIE --- */
+
+#start-countdown-container {
+  /* Display */
+  display: none;
+
+  /* Box Model */
+
+  /* Positionnement */
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+
+  /* Typographie */
+  font-size: 5rem;
+  font-weight: 800;
+
+  /* Couleur */
+  /* Animation */
+}
+
+#start-countdown-container.visible {
+  /* Display */
+  /* On passe de "none" à "block" lorsque l'élément reçoit la classe .visible */
+  display: block;
+
+  /* Box Model */
+  /* Positionnement */
+  /* Typographie */
+  /* Couleur */
+  /* Animation */
+}
+
+/* --- QUESTIONS, MESSAGES DE BIENVENUE ET DE FIN DE PARTIE --- */
+
 #question {
-  color: var(--noir);
-  font-size: 1.75rem;
+  /* Display */
+
+  /* Box Model */
   margin: 0 0 2rem 0;
+
+  /* Positionnement */
+
+  /* Typographie */
+  font-size: 1.75rem;
   text-align: center;
+
+  /* Couleur */
+  color: var(--noir);
+
+  /* Animation */
 }
 
 #question.hidden {
+  /* Display */
+  /* On passe de "block" à "none" lorsque l'élément reçoit la classe .hidden */
   display: none;
+
+  /* Box Model */
+  /* Positionnement */
+  /* Typographie */
+  /* Couleur */
+  /* Animation */
 }
 
-#answers-container div {
-  min-width: 50vw;
-  max-width: 100%;
+/* --- RÉPONSES --- */
+
+#answers-container {
+  /* Display */
+
+  /* Box Model */
+  width: 100%;
+
+  /* Positionnement */
+  /* Typographie */
+  /* Couleur */
+  /* Animation */
 }
+
+/* --- TIMER DE QUESTION --- */
 
 #timer-container {
-  align-items: center;
-  background: var(--blanc);
-  box-shadow: var(--shadow-elevation-high);
-  border-radius: 50%;
-  color: var(--noir);
+  /* Display */
   display: none;
+  align-items: center;
   justify-content: center;
+
+  /* Box Model */
   height: 100px;
+  border-radius: 50%;
+  box-shadow: var(--shadow-elevation-high);
   margin-bottom: 2rem;
   width: 100px;
+
+  /* Positionnement */
+  /* Typographie */
+
+  /* Couleur */
+  color: var(--noir);
+  background: var(--blanc);
+
+  /* Animation */
 }
 
 #timer-container.visible {
+  /* Display */
+  /* On passe de "none" à "flex" lorsque l'élément reçoit la classe .visible */
   display: flex;
+
+  /* Box Model */
+  /* Positionnement */
+  /* Typographie */
+  /* Couleur */
+  /* Animation */
 }
 
 #timer-container p {
+  /* Display */
+
+  /* Box Model */
+  margin: 0;
+
+  /* Positionnement */
+
+  /* Typographie */
   font-size: 2rem;
   font-weight: 600;
-  margin: 0;
   text-align: center;
+
+  /* Couleur */
+  /* Animation */
+}
+
+/* --- BOUTONS --- */
+
+.button {
+  /* Display */
+  align-items: center;
+  display: flex;
+  justify-content: center;
+
+  /* Box Model */
+  border-radius: 4px;
+  box-shadow: var(--shadow-elevation-high);
+  margin: 0 0 2rem 0;
+  padding: 1rem;
+
+  /* Positionnement */
+
+  /* Typographie */
+  font-weight: 800;
+
+  /* Couleur */
+  background: var(--blanc);
+
+  /* Animation */
+  animation: grow 0.5s ease-in-out;
+  transition: background-color 0.2s ease-in-out;
+
+  /* Autres propriétés */
+  cursor: pointer;
+}
+
+.button.correct {
+  /* Display */
+  /* Box Model */
+  /* Positionnement */
+  /* Typographie */
+
+  /* Couleur */
+  background-color: var(--vert);
+
+  /* Animation */
+}
+
+.button.wrong {
+  /* Display */
+  /* Box Model */
+  /* Positionnement */
+  /* Typographie */
+
+  /* Couleur */
+  background-color: var(--rose);
+
+  /* Animation */
 }
 
 #start-button.hidden {
+  /* Display */
   display: none;
+
+  /* Box Model */
+  /* Positionnement */
+  /* Typographie */
+  /* Couleur */
+  /* Animation */
 }
 
 #restart-button {
+  /* Display */
   display: none;
+
+  /* Box Model */
+  /* Positionnement */
+  /* Typographie */
+  /* Couleur */
+  /* Animation */
 }
 
 #restart-button.visible {
+  /* Display */
   display: block;
+
+  /* Box Model */
+  /* Positionnement */
+  /* Typographie */
+  /* Couleur */
+  /* Animation */
 }
 
+/* --- PANEAUX DE RÉPONSE --- */
+
 #answer-panel-container {
+  /* Display */
   align-items: center;
-  background: rgba(50, 50, 50, 0.5);
   display: flex;
-  visibility: hidden;
-  font-weight: 800;
-  height: 100vh;
   justify-content: center;
+
+  /* Box Model */
+  height: 100vh;
   opacity: 0;
-  width: 100vw;
+  visibility: hidden;
+  width: 100%;
+
+  /* Positionnement */
   position: absolute;
+
+  /* Typographie */
+  font-weight: 800;
+
+  /* Couleur */
+  background: rgba(50, 50, 50, 0.5);
+
+  /* Animation */
   transition: opacity 0.3s ease-in-out;
 }
 
 #answer-panel-container.visible {
-  visibility: visible;
+  /* Display */
+
+  /* Box Model */
   opacity: 1;
+  visibility: visible;
+
+  /* Positionnement */
+  /* Typographie */
+  /* Couleur */
+  /* Animation */
 }
 
 #answer-panel {
-  background: var(--blanc);
+  /* Display */
+
+  /* Box Model */
   border-radius: 15px;
   box-shadow: var(--shadow-elevation-high);
-  max-height: auto;
-  width: 80vw;
   padding: 1.5rem;
+  width: 80%;
+
+  /* Positionnement */
+  /* Typographie */
+
+  /* Couleur */
+  background: var(--blanc);
+
+  /* Animation */
 }
 
 #answer-panel p {
+  /* Display */
+
+  /* Box Model */
   margin-bottom: 2rem;
-}
 
-.button {
-  align-items: center;
-  animation: grow 0.5s ease-in-out;
-  background: var(--blanc);
-  box-shadow: var(--shadow-elevation-high);
-  border-radius: 4px;
-  cursor: pointer;
-  display: flex;
-  font-weight: 800;
-  margin: 0 0 2rem 0;
-  padding: 1rem;
-  justify-content: center;
-  transition: background-color 0.2s ease-in-out;
-}
-
-.button.correct {
-  background-color: var(--vert);
-}
-
-.button.wrong {
-  --shadow-color:  0deg 51% 42%;
-  background-color: var(--rose);
+  /* Positionnement */
+  /* Typographie */
+  /* Couleur */
+  /* Animation */
 }
