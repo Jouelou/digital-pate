@@ -7,19 +7,16 @@ const QUESTION_TIME = 20000;
 
 export class QuizManager {
   constructor(numQuestions, elements) {
+    
     // Interface
 
     this.startButton = elements.startButton;
     this.restartButton = elements.restartButton;
-
     this.questionContainer = elements.questionContainer;
     this.answersContainer = elements.answersContainer;
-
     this.answerPanelContainer = elements.answerPanelContainer;
-
     this.startCountdownContainer = elements.startCountdownContainer;
     this.timerContainer = elements.timerContainer;
-
     this.elements = [
       elements.startButton,
       elements.restartButton,
@@ -29,6 +26,7 @@ export class QuizManager {
       elements.startCountdownContainer,
       elements.timerContainer
     ];
+
     // Questions
     this.numQuestions = numQuestions;
     this.questions = sampleSize(questionData, this.numQuestions);
@@ -68,27 +66,6 @@ export class QuizManager {
     }, 10);
     this.handleInterface();
   }
-
-  // In case we use API
-
-  // init() {
-  //   this.getQuestions().then((questions) => {
-  //     this.questions = questions;
-  //     this.handleInterface();
-  //     this.showQuestion();
-  //   });
-  // }
-
-  // async getQuestions() {
-  //   return fetch("../quiz/data/questions.json")
-  //     .then((response) => {
-  //       return response.json();
-  //     })
-  //     .then((data) => {
-  //       const questions = sampleSize(data, this.numQuestions);
-  //       return questions;
-  //     });
-  // }
 
   showQuestion() {
     this.state = this.Asking;
@@ -196,7 +173,7 @@ export class QuizManager {
   }
 
   nextQuestion() {
-    if (this.isRunning === true) {
+    if (this.state === this.Asking) {
       this.timer.reset();
       this.timer.start();
     }
@@ -236,7 +213,7 @@ export class QuizManager {
         origin: { x: 1 },
         colors: confettiColors
       });
-      if (confettiEnd > Date.now() && this.isRunning === false) {
+      if (confettiEnd > Date.now()) {
         requestAnimationFrame(launchConfetti);
       }
     };

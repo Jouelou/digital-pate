@@ -19,14 +19,6 @@ body {
   overflow: hidden;
 }
 
-.hidden {
-  display: none !important;
-}
-
-.visible {
-  display: block !important;
-}
-
 #app {
   margin: 0 auto;
   display: flex;
@@ -39,15 +31,6 @@ body {
   width: 90vw;
 }
 
-#section {
-  width: 80%;
-}
-
-#question {
-  margin: 0 0 2rem 0;
-  text-align: center;
-}
-
 #start-countdown-container {
   display: none;
   left: 50%;
@@ -57,11 +40,27 @@ body {
   transform: translateX(-50%);
 }
 
+#start-countdown-container.visible {
+  display: block;
+}
+
+#section {
+  width: 80%;
+}
+
+#question {
+  margin: 0 0 2rem 0;
+  text-align: center;
+}
+
+#question.hidden {
+  display: none;
+}
 
 #timer-container {
   align-items: center;
   background: var(--blanc);
-  border: solid var(--noir) 1px;
+  box-shadow: var(--shadow-elevation-high);
   border-radius: 50%;
   color: var(--noir);
   display: none;
@@ -71,6 +70,10 @@ body {
   width: 100px;
 }
 
+#timer-container.visible {
+  display: flex;
+}
+
 #timer-container p {
   font-size: 2rem;
   font-weight: 600;
@@ -78,30 +81,44 @@ body {
   text-align: center;
 }
 
+
+#start-button.hidden {
+  display: none;
+}
+
 #restart-button {
   display: none;
+}
+
+#restart-button.visible {
+  display: block;
 }
 
 #answer-panel-container {
   align-items: center;
   background: rgba(50,50,50,0.5);
-  display: none;
+  display: flex;
+  visibility: hidden;
   font-weight: 800;
   height: 100vh;
   justify-content: center;
+  opacity: 0;
   width: 100vw;
-  position: fixed;
+  position: absolute;
   transition: opacity 0.3s ease-in-out;
+}
+
+#answer-panel-container.visible {
+  visibility: visible;
+  opacity: 1;
 }
 
 #answer-panel {
   background: var(--blanc);
-  border-radius: 25px;
+  border-radius: 15px;
   max-height: auto;
   max-width: 75vw;
   padding: 1.5rem;
-  animation-delay: 1500ms;
-
 }
 
 #answer-panel p {
@@ -112,11 +129,11 @@ body {
   align-items: center;
   animation: grow 0.5s ease-in-out;
   background: var(--blanc);
-  border: solid var(--noir) 1px;
-  border-radius: 2px;
+  box-shadow: var(--shadow-elevation-high);
+  border-radius: 4px;
   cursor: pointer;
   display: flex;
-  font-weight: 400;
+  font-weight: 800;
   margin: 0 0 2rem 0;
   padding: 1rem;
   justify-content: center;
