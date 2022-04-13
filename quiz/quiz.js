@@ -16,7 +16,8 @@ let elements = {
   timerContainer: document.querySelector("#timer-container"),
   startCountdownContainer: document.querySelector("#start-countdown-container"),
   // L'élément parent des boutons de réponse
-  answersContainer: document.querySelector("#answers-container")
+  answersContainer: document.querySelector("#answers-container"),
+  answerPanelContainer: document.querySelector("#answer-panel-container")
 };
 
 const instaciateQuiz = () => {

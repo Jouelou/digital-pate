@@ -1,4 +1,4 @@
-import { sampleSize, shuffle } from "lodash";
+import { once, sampleSize, shuffle } from "lodash";
 import { Timer } from "./Timer";
 import confetti from "canvas-confetti";
 import questionData from "../quiz/data/questions.json";
@@ -13,6 +13,8 @@ export class QuizManager {
 
     this.questionContainer = elements.questionContainer;
     this.answersContainer = elements.answersContainer;
+
+    this.answerPanelContainer = elements.answerPanelContainer;
 
     this.startCountdownContainer = elements.startCountdownContainer;
     this.timerContainer = elements.timerContainer;
@@ -31,36 +33,41 @@ export class QuizManager {
     this.score = 0;
 
     // State
+
+    // TODO Rewrite state management, this is horrible
     this.isStarting = false;
     this.isRunning = false;
+    this.isOver = false; 
     this.questionAnswered = false;
+
+
   }
 
   init() {
     this.isStarting = false;
     this.isRunning = true;
-    this.handleInterface();
+    this.isOver = false;
     this.showQuestion();
+    this.handleInterface();
   }
 
   startCountdown() {
     this.isStarting = true;
 
     let startCountdown = new Timer();
-    let startCountdownTime = 3000;
-
     startCountdown.start();
 
-    this.handleInterface();
     let startTimer = setInterval(() => {
       this.startCountdownContainer.innerHTML = Math.abs(
         Math.ceil(startCountdown.getTime() / 1000 - 4)
       );
-      if (startCountdown.getTime() >= startCountdownTime) {
+      if (startCountdown.getTime() >= 3000) {
         this.init();
         clearInterval(startTimer);
       }
     }, 10);
+
+    this.handleInterface();
   }
 
   // In case we use API
@@ -129,16 +136,18 @@ export class QuizManager {
 
       answerElement.addEventListener("click", () => {
         if (!this.questionAnswered) {
-          this.validateAnswer(answerElement.innerHTML, answerElement);
           this.questionAnswered = true;
+          this.validateAnswer(answerElement.innerHTML, answerElement);
         }
       });
     });
+    this.handleInterface();
   }
 
   validateAnswer(answer, el) {
+    this.isRunning = false;
     this.timer.stop();
-
+    this.timer.reset();
     if (
       this.questions[this.questionIndex].answers.find(
         (a) => a.text === answer
@@ -158,8 +167,23 @@ export class QuizManager {
     }
 
     // C'est ici qu'on détermine le petit delay avant de passer à la question suivante. 1000 = 1 seconde.
+    this.showAnswerPanel();
+  }
 
-    setTimeout(this.nextQuestion.bind(this), 1000);
+  showAnswerPanel() {
+    setTimeout(this.handleInterface.bind(this), 1000);
+    // this.handleInterface();
+    this.answerPanelContainer
+      .querySelector("#answer-panel .button")
+      .addEventListener(
+        "click",
+        () => {
+          this.nextQuestion();
+        },
+        {
+          once: true
+        }
+      );
   }
 
   nextQuestion() {
@@ -167,8 +191,8 @@ export class QuizManager {
       this.timer.reset();
       this.timer.start();
     }
-
     this.questionIndex++;
+    console.log(this.questionIndex);
 
     if (this.questionIndex >= this.questions.length) {
       this.endQuiz();
@@ -177,36 +201,15 @@ export class QuizManager {
     }
   }
 
-  handleInterface() {
-    if (this.isStarting === true) {
-      this.startButton.style.display = "none";
-      this.timerContainer.style.display = "none";
-      this.restartButton.style.display = "none";
-      this.startCountdownContainer.style.display = "block";
-      this.questionContainer.style.display = "none";
-    }
-    if (this.isRunning === true) {
-      this.questionContainer.style.display = "flex";
-      this.startButton.style.display = "none";
-      this.timerContainer.style.display = "flex";
-      this.restartButton.style.display = "none";
-      this.startCountdownContainer.style.display = "none";
-    }
-
-    if (!this.isRunning && !this.isStarting) {
-      this.restartButton.style.display = "flex";
-      this.questionContainer.style.display = "flex";
-      this.timerContainer.style.display = "none";
-    }
-  }
-
   endQuiz() {
     this.isRunning = false;
+    this.isOver = true;
+    this.questionAnswered = false;
+
     this.answersContainer.innerHTML = "";
-
-
-    this.questionContainer.innerHTML = `${this.endMessage()}, vous avez fait ${this.score} points`;
-    this.handleInterface();
+    this.questionContainer.innerHTML = `${this.endMessage()}, vous avez fait ${
+      this.score
+    } points`;
 
     let confettiEnd = Date.now() + 1 * 1000;
     let confettiColors = ["#02F58F", "#ffffff"];
@@ -232,19 +235,58 @@ export class QuizManager {
     };
 
     launchConfetti();
+    this.handleInterface();
   }
 
   endMessage() {
-    let message; 
+    let message;
     if (this.score < 1000) {
-      message = "Monstre nul"
-    }
-    else if (this.score > 2000 && this.score < 5000) {
-      message = "Joli joli"
-    }
-    else if (this.score > 5000) {
-      message = "'croyable"
+      message = "Monstre nul";
+    } else if (this.score > 2000 && this.score < 5000) {
+      message = "Joli joli";
+    } else if (this.score > 5000) {
+      message = "'croyable";
     }
     return message;
+  }
+
+  handleInterface() {
+    if (this.isStarting) {
+      this.startButton.style.display = "none";
+      this.timerContainer.style.display = "none";
+      this.startCountdownContainer.style.display = "block";
+      this.questionContainer.style.display = "none";
+    }
+    if (this.isRunning) {
+      this.questionContainer.style.display = "flex";
+      this.startButton.style.display = "none";
+      this.timerContainer.style.display = "flex";
+      this.startCountdownContainer.style.display = "none";
+    }
+
+    if (!this.isRunning && !this.isStarting) {
+      this.questionContainer.style.display = "flex";
+      this.timerContainer.style.display = "none";
+      this.answerPanelContainer.style.display = "hidden";
+      this.answerPanelContainer.style.opacity = "0";
+
+    }
+
+    if (this.questionAnswered) {
+      this.answerPanelContainer.style.visibility = "visible";
+      this.answerPanelContainer.style.opacity = "1";
+
+
+    } else {
+      this.answerPanelContainer.style.visibility = "hidden";
+      this.answerPanelContainer.style.opacity = "0";
+    }
+
+    if(this.isOver) {
+      this.restartButton.style.display = "flex";
+
+    } else {
+      this.restartButton.style.display = "none";
+    }
   }
 }

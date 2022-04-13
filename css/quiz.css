@@ -31,7 +31,7 @@ body {
   width: 90vw;
 }
 
-section {
+#section {
   width: 80%;
 }
 
@@ -49,6 +49,7 @@ section {
   transform: translateX(-50%);
 }
 
+
 #timer-container {
   align-items: center;
   background: var(--blanc);
@@ -60,7 +61,6 @@ section {
   height: 100px;
   margin-bottom: 2rem;
   width: 100px;
-  animation: grow 0.5s ease-in-out;
 }
 
 #timer-container p {
@@ -72,6 +72,34 @@ section {
 
 #restart-button {
   display: none;
+}
+
+#answer-panel-container {
+  align-items: center;
+  visibility: hidden;
+  background: rgba(50,50,50,0.5);
+  display: flex;
+  font-weight: 800;
+  height: 100vh;
+  justify-content: center;
+  width: 100vw;
+  position: fixed;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+#answer-panel {
+  background: var(--blanc);
+  border-radius: 25px;
+  max-height: auto;
+  max-width: 75vw;
+  padding: 1.5rem;
+  animation-delay: 1500ms;
+
+}
+
+#answer-panel p {
+  margin-bottom: 2rem;
 }
 
 .button {
