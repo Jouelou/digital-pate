@@ -69,6 +69,8 @@ export class QuizManager {
   }
 
   showQuestion() {
+    document.querySelector(":root").style.setProperty('--shadow-color', ' 155deg 100% 28%');
+
     this.state = this.Asking;
 
     if (!this.timer.isRunning) {
@@ -139,6 +141,7 @@ export class QuizManager {
         colors: ["#02F58F", "#ffffff"]
       });
     } else {
+      document.querySelector(":root").style.setProperty('--shadow-color', ' 0deg 51% 42%');
       el.classList.add("wrong");
     }
 
@@ -201,6 +204,8 @@ export class QuizManager {
   }
 
   endQuiz() {
+    document.querySelector(":root").style.setProperty('--shadow-color', ' 155deg 100% 28%');
+
     this.state = this.Over;
 
     this.answersContainer.innerHTML = "";

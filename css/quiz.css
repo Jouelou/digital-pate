@@ -152,5 +152,6 @@ body {
 }
 
 .button.wrong {
+  --shadow-color:  0deg 51% 42%;
   background-color: var(--rose);
 }
