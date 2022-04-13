@@ -7,7 +7,6 @@ const QUESTION_TIME = 20000;
 
 export class QuizManager {
   constructor(numQuestions, elements) {
-
     // Interface
     this.startButton = elements.startButton;
     this.restartButton = elements.restartButton;
@@ -42,7 +41,6 @@ export class QuizManager {
     this.isRunning = true;
     this.handleInterface();
     this.showQuestion();
-
   }
 
   startCountdown() {
@@ -54,18 +52,16 @@ export class QuizManager {
     startCountdown.start();
 
     this.handleInterface();
-    let startTimer =  setInterval(() => {
-      this.startCountdownContainer.innerHTML = Math.abs(Math.ceil(startCountdown.getTime() / 1000 - 4));
-      if(startCountdown.getTime() >= startCountdownTime) {
+    let startTimer = setInterval(() => {
+      this.startCountdownContainer.innerHTML = Math.abs(
+        Math.ceil(startCountdown.getTime() / 1000 - 4)
+      );
+      if (startCountdown.getTime() >= startCountdownTime) {
         this.init();
         clearInterval(startTimer);
       }
-    }, 10)
+    }, 10);
   }
-
-
-
-
 
   // In case we use API
 
@@ -117,7 +113,9 @@ export class QuizManager {
   }
 
   showAnswers() {
-    const answers = shuffle(this.questions[this.questionIndex].answers);
+    const answers = shuffle(
+      this.questions[this.questionIndex].answers
+    );
 
     this.answersContainer.innerHTML = "";
 
@@ -160,6 +158,7 @@ export class QuizManager {
     }
 
     // C'est ici qu'on détermine le petit delay avant de passer à la question suivante. 1000 = 1 seconde.
+
     setTimeout(this.nextQuestion.bind(this), 1000);
   }
 
@@ -179,7 +178,7 @@ export class QuizManager {
   }
 
   handleInterface() {
-    if(this.isStarting === true) {
+    if (this.isStarting === true) {
       this.startButton.style.display = "none";
       this.timerContainer.style.display = "none";
       this.restartButton.style.display = "none";
@@ -187,30 +186,32 @@ export class QuizManager {
       this.questionContainer.style.display = "none";
     }
     if (this.isRunning === true) {
+      this.questionContainer.style.display = "flex";
       this.startButton.style.display = "none";
       this.timerContainer.style.display = "flex";
       this.restartButton.style.display = "none";
       this.startCountdownContainer.style.display = "none";
-    } 
-      
-    if(!this.isRunning && !this.isStarting) {
-      this.restartButton.style.display = "flex";
-      this.questionContainer.style.display = "flex"
-      this.timerContainer.style.display = "none";
+    }
 
+    if (!this.isRunning && !this.isStarting) {
+      this.restartButton.style.display = "flex";
+      this.questionContainer.style.display = "flex";
+      this.timerContainer.style.display = "none";
     }
   }
 
   endQuiz() {
     this.isRunning = false;
     this.answersContainer.innerHTML = "";
-    this.questionContainer.innerHTML = `Bravo, vous avez fait ${this.score} points`;
+
+
+    this.questionContainer.innerHTML = `${this.endMessage()}, vous avez fait ${this.score} points`;
     this.handleInterface();
 
     let confettiEnd = Date.now() + 1 * 1000;
     let confettiColors = ["#02F58F", "#ffffff"];
 
-    const launchConfetti = (() => {
+    const launchConfetti = () => {
       confetti({
         particleCount: 10,
         angle: 60,
@@ -228,8 +229,22 @@ export class QuizManager {
       if (confettiEnd > Date.now() && this.isRunning === false) {
         requestAnimationFrame(launchConfetti);
       }
-    });
+    };
 
     launchConfetti();
+  }
+
+  endMessage() {
+    let message; 
+    if (this.score < 1000) {
+      message = "Monstre nul"
+    }
+    else if (this.score > 2000 && this.score < 5000) {
+      message = "Joli joli"
+    }
+    else if (this.score > 5000) {
+      message = "'croyable"
+    }
+    return message;
   }
 }
