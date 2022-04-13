@@ -1,4 +1,6 @@
-import { once, over, sampleSize, shuffle } from "lodash";
+import  sampleSize  from "lodash/sampleSize";
+import  shuffle from "lodash/shuffle";
+
 import { Timer } from "./Timer";
 import confetti from "canvas-confetti";
 import questionData from "../quiz/data/questions.json";
