@@ -14,7 +14,11 @@
         "text": "ça non alors",
         "correct": false
       }
-    ]
+    ],
+    "panel": {
+      "title": "Bla bla bla",
+      "body": "Lorem ipsum super."
+    }
   },
   {
     "question": "D'où vient le pâté?",
@@ -31,7 +35,11 @@
         "text": "De chez nous",
         "correct": false
       }
-    ]
+    ],
+    "panel": {
+      "title": "Bla bla bla",
+      "body": "Lorem ipsum super."
+    }
   },
   {
     "question": "Quels sont les ingrédients du pâté vaudois",
@@ -48,6 +56,10 @@
         "text": "De bien bonnes choses",
         "correct": false
       }
-    ]
+    ],
+    "panel": {
+      "title": "Bla bla bla",
+      "body": "Lorem ipsum super."
+    }
   }
 ]

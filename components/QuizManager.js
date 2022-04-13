@@ -37,10 +37,8 @@ export class QuizManager {
     // TODO Rewrite state management, this is horrible
     this.isStarting = false;
     this.isRunning = false;
-    this.isOver = false; 
+    this.isOver = false;
     this.questionAnswered = false;
-
-
   }
 
   init() {
@@ -173,6 +171,15 @@ export class QuizManager {
   showAnswerPanel() {
     setTimeout(this.handleInterface.bind(this), 1000);
     // this.handleInterface();
+    let titleElement = this.answerPanelContainer.querySelector(
+      "#answer-panel h1"
+    );
+    let textElement =
+      this.answerPanelContainer.querySelector("#answer-panel p");
+
+    titleElement.innerHTML = this.questions[this.questionIndex].panel.title;
+    textElement.innerHTML = this.questions[this.questionIndex].panel.body;
+
     this.answerPanelContainer
       .querySelector("#answer-panel .button")
       .addEventListener(
@@ -269,22 +276,18 @@ export class QuizManager {
       this.timerContainer.style.display = "none";
       this.answerPanelContainer.style.display = "hidden";
       this.answerPanelContainer.style.opacity = "0";
-
     }
 
     if (this.questionAnswered) {
       this.answerPanelContainer.style.visibility = "visible";
       this.answerPanelContainer.style.opacity = "1";
-
-
     } else {
       this.answerPanelContainer.style.visibility = "hidden";
       this.answerPanelContainer.style.opacity = "0";
     }
 
-    if(this.isOver) {
+    if (this.isOver) {
       this.restartButton.style.display = "flex";
-
     } else {
       this.restartButton.style.display = "none";
     }
