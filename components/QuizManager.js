@@ -1,5 +1,5 @@
-import  sampleSize  from "lodash/sampleSize";
-import  shuffle from "lodash/shuffle";
+import sampleSize from "lodash/sampleSize";
+import shuffle from "lodash/shuffle";
 
 import { Timer } from "./Timer";
 import confetti from "canvas-confetti";
@@ -9,7 +9,6 @@ const QUESTION_TIME = 20000;
 
 export class QuizManager {
   constructor(numQuestions, elements) {
-    
     // Interface
 
     this.startButton = elements.startButton;
@@ -156,10 +155,22 @@ export class QuizManager {
     let textElement =
       this.answerPanelContainer.querySelector("#answer-panel p");
 
+    let button = this.answerPanelContainer.querySelector(
+      "#answer-panel .button"
+    );
+
     titleElement.innerHTML =
       this.questions[this.questionIndex].panel.title;
     textElement.innerHTML =
       this.questions[this.questionIndex].panel.body;
+      console.log(this.questionIndex + "/" + this.numQuestions);
+
+    if (this.questionIndex === this.numQuestions - 1) {
+      button.innerHTML = "Voir les résultats";
+    } else {
+      button.innerHTML = "Prochaine question";
+
+    }
 
     this.answerPanelContainer
       .querySelector("#answer-panel .button")
