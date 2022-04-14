@@ -133,6 +133,15 @@ body {
 
 /* --- TIMER DE QUESTION --- */
 
+.answer-archive {
+  border: 1px solid var(--vert);
+  border-radius: 50%;
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  
+}
+
 #timer-container {
   /* Display */
   display: none;

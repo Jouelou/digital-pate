@@ -39,12 +39,16 @@ export class QuizManager {
     this.countdown = QUESTION_TIME;
     this.timeRemaining = QUESTION_TIME;
     this.timer = new Timer();
+    this.timerContainer.innerHTML = "";
+    this.timerText = document.createElement("p");
+    this.timerContainer.appendChild(this.timerText);
 
     // Score
     this.score = 0;
 
     // State
-    // Documentation Symbol: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
+    // Documentation Symbol:
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
     this.Starting = Symbol("Starting");
     this.Countdown = Symbol("Countdown");
     this.Asking = Symbol("Asking");
@@ -85,9 +89,11 @@ export class QuizManager {
 
     let questionCountdown = setInterval(() => {
       // Cette petite formule affiche le temps restant pour la question en secondes.
-      this.timerContainer.innerHTML = `<p>${Math.round(
+
+      this.timerText.innerHTML = `${Math.round(
         this.timeRemaining / 1000
-      )}</p>`;
+      )}`;
+
       this.timeRemaining = this.countdown - this.timer.getTime();
       if (this.state == this.Answered) {
         clearInterval(questionCountdown);
@@ -137,6 +143,24 @@ export class QuizManager {
     this.handleInterface();
   }
 
+  showAnswerSequence(answer, index) {
+    console.log(answer + "/" + index);
+
+    let scale = 1.2 + 0.2 * index;
+
+    let element = document.createElement("div");
+    element.classList.add("answer-archive");
+
+    element.style.transform = `scale(${scale})`;
+
+    if (answer === 1) {
+      element.style.border = "1px solid var(--vert)";
+    } else {
+      element.style.border = "1px solid var(--rose)";
+    }
+    this.timerContainer.appendChild(element);
+  }
+
   validateAnswer(answer, el) {
     this.state = this.Answered;
 
@@ -154,7 +178,9 @@ export class QuizManager {
       // Si la réponse est juste, on ajoute la classe .correct au bouton de réponse.
       el.classList.add("correct");
 
-      // On balance des confettis si la réponse est juste. 
+      this.showAnswerSequence(1, this.questionIndex);
+
+      // On balance des confettis si la réponse est juste.
       // Voici la documentation de la librairie canvas-confetti: https://github.com/catdad/canvas-confetti
       confetti({
         particleCount: 500,
@@ -163,6 +189,8 @@ export class QuizManager {
         colors: ["#02F58F", "#ffffff"]
       });
     } else {
+      this.showAnswerSequence(0, this.questionIndex);
+
       document
         .querySelector(":root")
         .style.setProperty("--shadow-color", " 0deg 51% 42%");
@@ -175,7 +203,6 @@ export class QuizManager {
   }
 
   showAnswerPanel() {
-
     // C'est ici qu'est défini le petit retard entre la validation de la question
     // et l'affichage du panel donnant plus d'informations.
     setTimeout(this.handleInterface.bind(this), 1000);
@@ -197,7 +224,6 @@ export class QuizManager {
       this.questions[this.questionIndex].panel.title;
     textElement.innerHTML =
       this.questions[this.questionIndex].panel.body;
-    console.log(this.questionIndex + "/" + this.numQuestions);
 
     // C'est ici qu'on détermine le texte du bouton du panel
     if (this.questionIndex === this.numQuestions - 1) {
@@ -220,11 +246,9 @@ export class QuizManager {
   }
 
   nextQuestion() {
-
     // C'est ici que se trouve la logique qui permet de passer à la question
-    // suivante, ou mettre fin à la partie. 
+    // suivante, ou mettre fin à la partie.
     this.questionIndex++;
-    console.log(this.questionIndex);
 
     if (this.questionIndex >= this.questions.length) {
       this.endQuiz();
@@ -234,19 +258,19 @@ export class QuizManager {
   }
 
   endQuiz() {
-
     this.state = this.Over;
 
-    // On reset la couleur des box-shadows (variable css --shadow-color). 
-    // Si on ne fait pas ça, la couleur reste rouge si la réponse est fausse et 
+    this.answerSequence = [];
+
+    // On reset la couleur des box-shadows (variable css --shadow-color).
+    // Si on ne fait pas ça, la couleur reste rouge si la réponse est fausse et
     // qu'on est passé à l'écran de résultats.
     document
       .querySelector(":root")
       .style.setProperty("--shadow-color", " 155deg 100% 28%");
 
-
     this.answersContainer.innerHTML = "";
-
+    this.timerContainer.querySelector("p").innerHTML = "";
     // C'est ici qu'on affiche le texte de l'écran de fin de partie. Le score est
     // calculé dans validateAnswer() et le mot de "félicitations" (ou pas) est
     // défini selon le score final dans la fonction endMessage()
@@ -256,7 +280,6 @@ export class QuizManager {
 
     let confettiEnd = Date.now() + 1 * 1000;
     let confettiColors = ["#02F58F", "#ffffff"];
-
 
     // On balance des confettis quoi qu'il se passe à la fin de la partie.
     const launchConfetti = () => {
@@ -284,7 +307,6 @@ export class QuizManager {
   }
 
   endMessage() {
-
     // À recalibrer selon le ton et les scores possibles dans le jeu.
     let message;
     if (this.score < 1000) {
@@ -298,14 +320,13 @@ export class QuizManager {
   }
 
   handleInterface() {
-
     // C'est ici que se trouve la logique qui permet de changer l'interface
     // en fonction de l'état de l'application.
-    // Les éléments nécessaires à chaque phase sont mis dans leur propre tableau. 
+    // Les éléments nécessaires à chaque phase sont mis dans leur propre tableau.
     // On compare ensuite l'ensemble des éléments au tableau correspondant à chaque phase.
     // Les éléments présents dans les deux reçoivent la classe .visible, les autres la classe .hidden.
     // Il y a probablement un façon plus élégante de faire ça.
-  
+
     const startingElements = [
       this.startButton,
       this.questionContainer
@@ -326,7 +347,11 @@ export class QuizManager {
       this.answerPanelContainer
     ];
 
-    const overElements = [this.questionContainer, this.restartButton];
+    const overElements = [
+      this.questionContainer,
+      this.restartButton,
+      this.timerContainer
+    ];
 
     switch (this.state) {
       case this.Starting:
