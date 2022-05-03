@@ -1,3 +1,12 @@
+@font-face {
+  font-family: 'antarctica';
+  src: url('../fonts/Antarctica\ Variable\ TTF/') format('truetype');
+}
+
+body{
+  font-family: 'antarctica', sans-serif;
+}
+
 :root {
     --vert: #02F58F;
     --gris: #EFEFEF;

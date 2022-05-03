@@ -3,15 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite App</title>
   </head>
   <body>
     <div id="app">
-      <h1>Digital Pâté</h1>
+      <header class="acceuil">
+        <img class="mainimg" src="./img/illu_accueil.svg" alt="" />
+        <div class="titre">
+          <h1>Liberté</h1>
+          <h1>et Pâté!</h1>
+        </div>
+      </header>
+      <div class="intro">
+        <h2>
+          Découvre l'histoire du Pâté vaudois à travers notre jeu de piste en
+          réalité augmentée
+        </h2>
+      </div>
+
+      <div class="tuto">
+        <div class="etape">
+          <h1 class="numero">1</h1>
+          <div class="BlocTtuto">
+            <h2 class="Ttuto">Installe l'app Artivive</h2>
+            <img href="" src="" alt="app store" />
+          </div>
+        </div>
+        <div class="etape">
+          <h1 class="numero">2</h1>
+          <h2 class="Ttuto">Trouve les affiches dans la salle</h2>
+        </div>
+        <div class="etape">
+          <h1 class="numero">3</h1>
+          <h2 class="Ttuto">Scanne les affiches et découvre les animations</h2>
+        </div>
+        <div class="etape">
+          <h1 class="numero">4</h1>
+          <h2 class="Ttuto">Participe au Quiz!</h2>
+        </div>
+      </div>
+      <footer>
+        <div class="Qtext">
+          <h1>Bienvenue sur le Quiz officiel du Pâté Vaudois</h1>
+          <h2>
+            Participe et tente de remporter l'un des nombreux prix du concours
+          </h2>
+        </div>
+        <button href="./quiz/index.html">Commencer</button>
+      </footer>
     </div>
     <script type="module" src="/main.js"></script>
   </body>
