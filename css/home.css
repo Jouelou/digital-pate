@@ -39,12 +39,12 @@ row-gap: 3%;
 header{
     grid-column-start: 1;
     grid-column-end: 9;
-    grid-template-rows: 80vh 20vh;
+    grid-template-rows: 70vh 30vh;
     background-image: url(../img/illu_accueil.svg);
     background-repeat: no-repeat;
-    background-size: 150%;
-    background-position-x: -6rem;
-    background-position-y: 2rem;
+    background-size: 118%;
+    background-position-x: -4rem;
+    background-position-y: 1rem;
 }
 
 .titre{
@@ -100,7 +100,7 @@ footer{
     height: 30vh;
 }
 
-button{
+.button{
 position: absolute;
 right: 0;
 margin-right: 5rem;
@@ -111,4 +111,7 @@ height: 3rem;
 border-radius: 12px;
 border-color: rgb(94, 94, 94);
 border-style: solid;
+text-decoration: none;
+text-align: center;
+line-height: 2.8rem;
 }
