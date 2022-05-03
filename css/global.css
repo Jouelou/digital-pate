@@ -6,6 +6,7 @@
 body{
   font-family: 'antarctica', sans-serif;
   line-height: 1.1;
+  overflow-x: hidden;
 }
 
 :root {

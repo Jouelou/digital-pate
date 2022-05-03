@@ -1,9 +1,9 @@
 h1 {
-    font-size: 4rem;
+    font-size: 9vmin;
 }
 
 h2 {
-    font-size: 1.9rem;
+    font-size: 7vmin;
     font-weight: 500;
 }
 
@@ -39,21 +39,21 @@ row-gap: 3%;
 header{
     grid-column-start: 1;
     grid-column-end: 9;
-    grid-template-rows: 70vh 30vh;
+    grid-template-rows: 68vh 32vh;
     background-image: url(../img/illu_accueil.svg);
     background-repeat: no-repeat;
-    background-size: 118%;
+    background-size: 120vmin;
     background-position-x: -4rem;
     background-position-y: 1rem;
 }
 
 .titre{
-    text-align: right;
 grid-column-end: 8;
-grid-column-start: 1;
-
-
-
+grid-column-start: 3;
+text-align: right;
+}
+.liberte{
+    margin-right: 15px;
 }
 
 .intro, .tuto {
@@ -77,16 +77,17 @@ grid-column-start: 1;
 .Ttuto{
     width: 47vw;
     font-weight: 400;
+    font-size: 5vmin;
 }
 
 .numero{
-    font-size: 7rem;
+    font-size: 20vmin;
     font-weight: 200;
 }
 
 footer{
-    margin-top: 14rem;
-    margin-bottom: 10rem;
+    margin-top: 2rem;
+    margin-bottom: 22rem;
     grid-column-start: 2;
     grid-column-end: 9;
     height: 60vh;
@@ -96,22 +97,22 @@ footer{
 .drapeau{
     margin-top: 0.4rem;
     font-weight: 400;
-    font-size: 1.2rem;
+    font-size: 6vmin;
     height: 30vh;
 }
 
 .button{
+    font-size: 4vmin;
+    
 position: absolute;
-right: 0;
-margin-right: 5rem;
 color: white;
 background-color: rgb(108, 108, 108);
-width: 8rem;
-height: 3rem;
+width: 27vmin;
+height: 12vmin;
 border-radius: 12px;
 border-color: rgb(94, 94, 94);
 border-style: solid;
 text-decoration: none;
 text-align: center;
-line-height: 2.8rem;
+line-height: 11.3vmin;
 }
