@@ -30,33 +30,41 @@ h2 {
     height: 30vh;
 }
 
-#app, header{
+#app{
 display: grid;
-grid-template-columns: 10% 10% 10% 10% 10% 10% 10% 10%;
-column-gap: 2.9%;
+grid-template-columns: repeat(8, 8%);
+column-gap: 5.12%;
 row-gap: 3%;
 }
+
 header{
     grid-column-start: 1;
     grid-column-end: 9;
-    grid-template-rows: 68vh 32vh;
+    grid-template-rows: 75vh 18vh 25vh;
+    grid-template-columns: repeat(20, 8%);
     background-image: url(../img/illu_accueil.svg);
     background-repeat: no-repeat;
-    background-size: 120vmin;
-    background-position-x: -4rem;
-    background-position-y: 1rem;
+    background-size: 130vmax;
+    background-position-x: -41vh;
+    background-position-y: -8vh;
+    display: grid;
+    row-gap: 3%;
 }
 
 .titre{
 grid-column-end: 8;
-grid-column-start: 3;
-text-align: right;
+grid-column-start: 2;
 }
 .liberte{
     margin-right: 15px;
 }
 
-.intro, .tuto {
+.intro{
+    grid-column-start: 2;
+    grid-column-end:13 ;
+} 
+
+.tuto {
     grid-column-start: 2;
     grid-column-end: 8;
 }
@@ -88,11 +96,19 @@ text-align: right;
 footer{
     margin-top: 2rem;
     margin-bottom: 22rem;
-    grid-column-start: 2;
+    grid-column-start: 1;
     grid-column-end: 9;
     height: 60vh;
+    display: grid;
+    grid-template-columns: repeat(12,8%);
+    grid-template-rows: 40vh 30vh;
+
 }
 
+.Qtext{
+    grid-column-start: 2 ;
+    grid-column-end: 9;
+}
 
 .drapeau{
     margin-top: 0.4rem;
@@ -103,16 +119,20 @@ footer{
 
 .button{
     font-size: 4vmin;
-    
-position: absolute;
 color: white;
-background-color: rgb(108, 108, 108);
-width: 27vmin;
+background-color:#009355;
+width: 33vmin;
 height: 12vmin;
-border-radius: 12px;
-border-color: rgb(94, 94, 94);
+border-radius: 40px;
+border-width: 0.4vmin;
+border-color: #007e4a;
 border-style: solid;
 text-decoration: none;
 text-align: center;
 line-height: 11.3vmin;
+grid-column-start: 2;
+}
+
+.playstore{
+    width: 8rem;
 }
