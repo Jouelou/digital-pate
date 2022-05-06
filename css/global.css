@@ -1,10 +1,30 @@
 @font-face {
-  font-family: 'antarctica';
-  src: url('../fonts/Antarctica\ Variable\ TTF/') format('truetype');
+  font-family: 'aMedium';
+  src: url('../fonts/Antarctica-Medium.woff2') format('woff2');
+}
+
+@font-face{
+  font-family: 'aRegular';
+  src: url('../fonts/Antarctica-Regular.woff2') format('woff2');
+}
+
+@font-face{
+  font-family: 'aLight';
+  src: url('../fonts/Antarctica-Light.woff2') format('woff2');
+}
+
+@font-face{
+  font-family: 'aBold';
+  src: url('../fonts/Antarctica-Bold.woff2') format('woff2');
+}
+
+@font-face{
+  font-family: 'aThin';
+  src: url('../fonts/Antarctica-Thin.woff2') format('woff2');
 }
 
 body{
-  font-family: 'antarctica', sans-serif;
+  font-family: Aregular;
   line-height: 1.1;
   overflow-x: hidden;
 }
