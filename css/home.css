@@ -44,7 +44,7 @@ row-gap: 3%;
 header{
     grid-column-start: 1;
     grid-column-end: 9;
-    grid-template-rows: 71vh 25vh 35vh;
+    grid-template-rows: 71vh 25vh 50vh;
     grid-template-columns: repeat(20, 8%);
     background-image: url(../img/illu_accueil.svg);
     background-repeat: no-repeat;
@@ -86,6 +86,7 @@ font-family: aBold;
 .BlocTtuto{
     display: flex;
     flex-direction: column;
+    gap: 5px;
 }
 
 .Ttuto{
@@ -98,6 +99,9 @@ font-family: aBold;
     font-size: 20vmin;
     font-weight: 200;
     font-family: aThin;
+    background-color: white;
+    width: 50px;
+    text-align: center;
 }
 
 footer{
@@ -143,5 +147,16 @@ grid-column-start: 2;
 }
 
 .download{
-    width: 33vmin;
+    width: 37vmin;
 }
+
+.dotted:after {
+    content:"";
+    position: absolute;
+    left: 20vmin;
+    top: 158vh;
+    z-index: -1;
+    height: 120%;
+    border-left: 3px dotted lightgrey;
+}
+
