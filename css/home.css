@@ -64,7 +64,7 @@ header {
 }
 
 .titre {
-  grid-column-end: 20;
+  grid-column-end: 12;
   grid-column-start: 2;
   font-family: aBold;
 }
