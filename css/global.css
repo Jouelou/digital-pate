@@ -23,26 +23,6 @@
   src: url("../fonts/Antarctica-Thin.woff2") format("woff2");
 }
 
-.medium {
-  font-family: aMedium;
-}
-
-.regular {
-  font-family: aRegular;
-}
-
-.bold {
-  font-family: aBold;
-}
-
-.light {
-  font-family: aLight;
-}
-
-.thin {
-  font-family: aThin;
-}
-
 :root {
   --vert: #02f58f;
   --gris: #efefef;

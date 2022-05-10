@@ -19,6 +19,26 @@ body {
   overflow: hidden;
 }
 
+.medium {
+  font-family: aMedium;
+}
+
+.regular {
+  font-family: aRegular;
+}
+
+.bold {
+  font-family: aBold;
+}
+
+.light {
+  font-family: aLight;
+}
+
+.thin {
+  font-family: aThin;
+}
+
 #app {
   /* Display */
   display: flex;
