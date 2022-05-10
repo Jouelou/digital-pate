@@ -20,8 +20,8 @@
       }
     ],
     "panel": {
-      "title": "Bla bla bla",
-      "body": "Lorem ipsum super."
+      "title": "On ne sait pas",
+      "body": "C’est bel et bien dans le canton de Vaud et alentours qu’il est le plus consommé ! Malgré cela son origine exacte reste inconnue. "
     }
   },
   {
@@ -41,8 +41,8 @@
       }
     ],
     "panel": {
-      "title": "Bla bla bla",
-      "body": "Lorem ipsum super."
+      "title": "Première moitié du XXe siècle",
+      "body": "Les pâtés à la viande sont produits dans le canton de Vaud et les régions proches depuis la première moitié du 20ème siècle"
     }
   },
   {
@@ -65,12 +65,12 @@
     }
     ],
     "panel": {
-      "title": "Bla bla bla",
-      "body": "Lorem ipsum super."
+      "title": "5 millions de pièces",
+      "body": "La production annuelle de pâtés à la viande peut être estimée à 5 millions de pièces au niveau national. Les principaux ateliers de fabrication industrielle sont à Böckten BL (Le Patron/Orior) et Ecublens VD (Jowa – Migros)."
     }
   },
   {
-    "question": "Quelle est la part de production artisanale (par les boulangers et bouchers) de pâtés en Suisse romande ?",
+    "question": "Quelle est la part de production artisanale de pâtés en Suisse romande ?",
     "answers": [
       {
         "text": "10%",
@@ -89,8 +89,8 @@
     }
     ],
     "panel": {
-      "title": "Bla bla bla",
-      "body": "Lorem ipsum super."
+      "title": "10%",
+      "body": "La fabrication artisanale par les petits artisans boulangers ou bouchers en Suisse romande et particulièrement dans le canton de Vaud ne doit pas dépasser 10% de la production totale."
     }
   },
   {
@@ -110,8 +110,8 @@
       }
     ],
     "panel": {
-      "title": "Bla bla bla",
-      "body": "Lorem ipsum super."
+      "title": "Lentilles, moutarde",
+      "body": "Bien apprécié accompagné de moutarde, c'est un plat que l'on mange le plus souvent au souper"
     }
   },
   {
@@ -131,19 +131,19 @@
       }
     ],
     "panel": {
-      "title": "Bla bla bla",
-      "body": "Lorem ipsum super."
+      "title": "Dans des moules en aluminium à usage unique",
+      "body": "Par gain de temps, il est fabriqué aujourd’hui dans des moules en aluminium à usage unique"
     }
   },
   {
-    "question": "Quelle alcool retrouve-t-on dans la gelée du pâté vaudois ?",
+    "question": "Quelle alcool retrouve-t-on le plus souvent dans la gelée du pâté vaudois ?",
     "answers": [
       {
         "text": "Porto",
         "correct": true
       },
       {
-        "text": "Cognac",
+        "text": "williamine",
         "correct": false
       },
       {
@@ -153,7 +153,7 @@
     ],
     "panel": {
       "title": "Bla bla bla",
-      "body": "Lorem ipsum super."
+      "body": "On peut aromatiser la gelée avec un alcool à choix (Porto, madère, cognac, etc.)"
     }
   },
   {
@@ -173,29 +173,29 @@
       }
     ],
     "panel": {
-      "title": "Bla bla bla",
-      "body": "Lorem ipsum super."
+      "title": "Couler la gelée une fois la pâte cuite",
+      "body": "Une fois le pâté refroidi, on introduit la gelée par la cheminée. Ainsi le pâté est hermétiquement fermé"
     }
   },
   {
     "question": "Quelle est la bonne cuisson du pâté",
     "answers": [
       {
-        "text": "1h à 200º",
+        "text": "1h à 200°",
         "correct": true
       },
       {
-        "text": "40 min à 250º",
+        "text": "40 min à 250°",
         "correct": false
       },
       {
-        "text": "30 min à 150º",
+        "text": "30 min à 150°",
         "correct": false
       }
     ],
     "panel": {
-      "title": "Bla bla bla",
-      "body": "Lorem ipsum super."
+      "title": "1h à 200°",
+      "body": "Pendant la cuisson (200°C, une heure environ), l’humidité issue de la cuisson de la farce s’échappe par la cheminée."
     }
   }
   

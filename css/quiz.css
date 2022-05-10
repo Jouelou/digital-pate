@@ -227,7 +227,7 @@ body {
   /* Box Model */
   border-radius: 40px;
   /*box-shadow: var(--shadow-elevation-high);*/
-  margin: 0 0 2rem 0;
+  margin: 0 0 5vmin 0;
   padding: 1rem;
   border-style: dashed;
   border-width: 2px;

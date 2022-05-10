@@ -193,7 +193,7 @@ export class QuizManager {
         particleCount: 500,
         startVelocity: 50,
         spread: 360,
-        colors: ["#02F58F", "#ffffff"]
+        colors: ["#009355", "#ffffff"]
       });
     } else {
       this.showAnswerSequence(0, this.questionIndex);
