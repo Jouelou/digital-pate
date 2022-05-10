@@ -165,5 +165,15 @@ footer {
   top: 158vh;
   z-index: 0;
   height: 120%;
-  border-left: 3px dotted lightgrey;
+  border-left: 3px dashed #009355;
+  opacity: 0.3;
+}
+
+.pateOutline {
+  fill: green;
+  fill-opacity: 0.2;
+  position: absolute;
+  left: 15vmin;
+  top: 150vh;
+  width: 12vmin;
 }

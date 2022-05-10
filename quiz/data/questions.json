@@ -13,6 +13,10 @@
       {
         "text": "L'empire romain",
         "correct": false
+      },
+      {
+        "text": "Des USA sous Lincoln",
+        "correct": false
       }
     ],
     "panel": {
@@ -56,7 +60,7 @@
         "text": "200 mille ",
         "correct": false
       },
-      {"text": " millions",
+      {"text": "1 million",
       "correct":false
     }
     ],

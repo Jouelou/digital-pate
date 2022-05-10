@@ -45,6 +45,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  gap: 3rem;
 
   /* Box Model */
   margin: 0 auto;
@@ -53,7 +54,6 @@ body {
   width: 90vw;
 
   /* Positionnement */
-
   /* Typographie */
   font-family: sans-serif;
 
@@ -116,7 +116,7 @@ body {
   /* Positionnement */
 
   /* Typographie */
-  font-size: 1.75rem;
+  font-size: 6vmin;
   text-align: center;
 
   /* Couleur */
@@ -147,6 +147,7 @@ body {
 
   /* Positionnement */
   /* Typographie */
+  text-align: center;
   /* Couleur */
   /* Animation */
 }
@@ -176,6 +177,8 @@ body {
   width: 100px;
 
   /* Positionnement */
+  /*position: absolute;
+  top: 10%;*/
   /* Typographie */
 
   /* Couleur */
