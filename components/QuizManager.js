@@ -17,6 +17,7 @@ export class QuizManager {
     this.answerPanelContainer = elements.answerPanelContainer;
     this.startCountdownContainer = elements.startCountdownContainer;
     this.timerContainer = elements.timerContainer;
+    this.timerPate = elements.timerPate;
 
     // On met chacun des éléments dans un tableau histoire de pouvoir faire une comparaison
     // dans la fonction handleInterface(). Il y a probablement une façon plus élégante de faire ça.
@@ -27,7 +28,8 @@ export class QuizManager {
       elements.answersContainer,
       elements.answerPanelContainer,
       elements.startCountdownContainer,
-      elements.timerContainer
+      elements.timerContainer,
+      elements.timerPate
     ];
 
     // Questions
@@ -69,12 +71,17 @@ export class QuizManager {
         Math.ceil(startCountdown.getTime() / 1000 - 4)
       );
 
+
       // C'est ici qu'on règle le temps de countdown de départ. 3000 = 3 secondes.
-      if (startCountdown.getTime() >= 3000) {
+      if (startCountdown.getTime() >= 3750) {
         this.showQuestion();
         clearInterval(startTimer);
       }
+      if(this.startCountdownContainer.innerHTML.indexOf("0") !== -1) {
+      this.startCountdownContainer.innerHTML = "Pâté!"
+      };
     }, 10);
+
     this.handleInterface();
   }
 
@@ -337,20 +344,23 @@ export class QuizManager {
     const askingElements = [
       this.questionContainer,
       this.answersContainer,
-      this.timerContainer
+      this.timerContainer,
+      this.timerPate
     ];
 
     const answeredElements = [
       this.questionContainer,
       this.answersContainer,
       this.timerContainer,
+      this.timerPate,
       this.answerPanelContainer
     ];
 
     const overElements = [
       this.questionContainer,
       this.restartButton,
-      this.timerContainer
+      this.timerContainer,
+      this.timerPate
     ];
 
     switch (this.state) {

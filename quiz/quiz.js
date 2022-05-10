@@ -14,6 +14,7 @@ let elements = {
 
   // L'élément dans lequel est affiché le score
   timerContainer: document.querySelector("#timer-container"),
+  timerPate: document.querySelector("#timer-pate"),
   startCountdownContainer: document.querySelector("#start-countdown-container"),
   // L'élément parent des boutons de réponse
   answersContainer: document.querySelector("#answers-container"),
@@ -21,7 +22,7 @@ let elements = {
 };
 
 const instaciateQuiz = () => {
-  let quiz = new QuizManager(3, elements);
+  let quiz = new QuizManager(7, elements);
   quiz.startCountdown();
 }
 

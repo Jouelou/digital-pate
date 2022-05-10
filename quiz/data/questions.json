@@ -1,17 +1,17 @@
 [
   {
-    "question": "Le pâté est-il casher?",
+    "question": "Quelles sont les origines du pâté ?",
     "answers": [
       {
-        "text": "Oui",
-        "correct": false
-      },
-      {
-        "text": "peut-être",
+        "text": "On ne sait pas",
         "correct": true
       },
       {
-        "text": "ça non alors",
+        "text": "Le livre de recette du Major Davel",
+        "correct": false
+      },
+      {
+        "text": "L'empire romain",
         "correct": false
       }
     ],
@@ -21,18 +21,18 @@
     }
   },
   {
-    "question": "D'où vient le pâté?",
+    "question": "À partir de quand ont été produits les pâtés dans le canton de Vaud ?",
     "answers": [
       {
-        "text": "Personne ne sait",
+        "text": "Première moitié du XXe siècle",
         "correct": true
       },
       {
-        "text": "Du livre de recette du père du Major Davel, retrouvé brulé brulé par les Bernois en 1895",
+        "text": "XVIII siècle",
         "correct": false
       },
       {
-        "text": "De chez nous",
+        "text": "Début du XXIe siècle",
         "correct": false
       }
     ],
@@ -42,18 +42,150 @@
     }
   },
   {
-    "question": "Quels sont les ingrédients du pâté vaudois",
+    "question": "Quelle est la quantité de production annuelle de pâtés à la viande au niveau national ?",
     "answers": [
       {
-        "text": "Personne ne sait",
+        "text": "5 millions de pièces",
         "correct": true
       },
       {
-        "text": "Vous ne préférez pas savoir",
+        "text": "15 millions",
         "correct": false
       },
       {
-        "text": "De bien bonnes choses",
+        "text": "200 mille ",
+        "correct": false
+      },
+      {"text": " millions",
+      "correct":false
+    }
+    ],
+    "panel": {
+      "title": "Bla bla bla",
+      "body": "Lorem ipsum super."
+    }
+  },
+  {
+    "question": "Quelle est la part de production artisanale (par les boulangers et bouchers) de pâtés en Suisse romande ?",
+    "answers": [
+      {
+        "text": "10%",
+        "correct": true
+      },
+      {
+        "text": "35%",
+        "correct": false
+      },
+      {
+        "text": "50%",
+        "correct": false
+      },
+      {"text": "80%",
+      "correct":false
+    }
+    ],
+    "panel": {
+      "title": "Bla bla bla",
+      "body": "Lorem ipsum super."
+    }
+  },
+  {
+    "question": "Quel est l’accompagnement idéal du pâté vaudois ?",
+    "answers": [
+      {
+        "text": "Lentilles, moutarde",
+        "correct": true
+      },
+      {
+        "text": "Riz, sauce soja",
+        "correct": false
+      },
+      {
+        "text": "Pâtes, mayonnaise",
+        "correct": false
+      }
+    ],
+    "panel": {
+      "title": "Bla bla bla",
+      "body": "Lorem ipsum super."
+    }
+  },
+  {
+    "question": "Dans quoi sont fabriqués les pâtés ? ",
+    "answers": [
+      {
+        "text": "Dans des moules en aluminium à usage unique",
+        "correct": true
+      },
+      {
+        "text": "Dans des moules en silicone",
+        "correct": false
+      },
+      {
+        "text": "Dans des moules en bois",
+        "correct": false
+      }
+    ],
+    "panel": {
+      "title": "Bla bla bla",
+      "body": "Lorem ipsum super."
+    }
+  },
+  {
+    "question": "Quelle alcool retrouve-t-on dans la gelée du pâté vaudois ?",
+    "answers": [
+      {
+        "text": "Porto",
+        "correct": true
+      },
+      {
+        "text": "Cognac",
+        "correct": false
+      },
+      {
+        "text": "Whisky",
+        "correct": false
+      }
+    ],
+    "panel": {
+      "title": "Bla bla bla",
+      "body": "Lorem ipsum super."
+    }
+  },
+  {
+    "question": "À quoi sert la cheminée en pâte au-dessus du pâté ?",
+    "answers": [
+      {
+        "text": "Couler la gelée une fois la pâte cuite",
+        "correct": true
+      },
+      {
+        "text": "Remplir la pâte de farce",
+        "correct": false
+      },
+      {
+        "text": "Laisser s'échapper la graisse présente dans la viande",
+        "correct": false
+      }
+    ],
+    "panel": {
+      "title": "Bla bla bla",
+      "body": "Lorem ipsum super."
+    }
+  },
+  {
+    "question": "Quelle est la bonne cuisson du pâté",
+    "answers": [
+      {
+        "text": "1h à 200º",
+        "correct": true
+      },
+      {
+        "text": "40 min à 250º",
+        "correct": false
+      },
+      {
+        "text": "30 min à 150º",
         "correct": false
       }
     ],
@@ -62,4 +194,5 @@
       "body": "Lorem ipsum super."
     }
   }
+  
 ]
