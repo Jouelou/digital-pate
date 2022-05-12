@@ -159,8 +159,8 @@ body {
   border: 1px solid var(--vert);
   border-radius: 50%;
   position: absolute;
-  height: 100px;
-  width: 100px;
+  height: 20vmin;
+  width: 20vmin;
   z-index: 0;
 }
 
@@ -171,10 +171,10 @@ body {
   justify-content: center;
 
   /* Box Model */
-  height: 100px;
+  height: 20vmin;
   border-radius: 50%;
-  margin-bottom: 7rem;
-  width: 100px;
+  margin-bottom: 3rem;
+  width: 20vmin;
 
   /* Positionnement */
   /*position: absolute;
@@ -228,7 +228,7 @@ body {
   border-radius: 40px;
   /*box-shadow: var(--shadow-elevation-high);*/
   margin: 0 0 5vmin 0;
-  padding: 1rem;
+  padding: 0.8rem;
   border-style: dashed;
   border-width: 2px;
   border-color: var(--vert);
