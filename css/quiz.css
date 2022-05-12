@@ -23,23 +23,23 @@ body {
 }
 
 .medium {
-  font-family: aMedium;
+  /* font-family: aMedium; */
 }
 
 .regular {
-  font-family: aRegular;
+  /* font-family: aRegular; */
 }
 
 .bold {
-  font-family: aBold;
+  /* font-family: aBold; */
 }
 
 .light {
-  font-family: aLight;
+  /* font-family: aLight; */
 }
 
 .thin {
-  font-family: aThin;
+  /* font-family: aThin; */
 }
 
 #app {
@@ -57,8 +57,7 @@ body {
 
   /* Positionnement */
   /* Typographie */
-  font-family: sans-serif;
-
+  font-family: aRegular, sans-serif;
   /* Couleur */
   /* Animation */
 }
@@ -201,6 +200,11 @@ body {
   /* Animation */
 }
 
+#timer-pate {
+  width: 400px;
+  height: 400px;
+}
+
 #timer-container p {
   /* Display */
 
@@ -208,12 +212,14 @@ body {
   margin: 0;
 
   /* Positionnement */
+  position: absolute;
 
   /* Typographie */
   font-size: 2rem;
   font-weight: 600;
   text-align: center;
   /* Couleur */
+  color: #ffffff;
   /* Animation */
 }
 
@@ -360,9 +366,7 @@ h1 {
   border-radius: 20%;
   padding: 1.5rem;
   width: 80%;
-  border: black;
   border-style: dashed;
-  border-color: var(--vert);
   border-width: 1.3vmin;
 
   /* Positionnement */
@@ -372,6 +376,14 @@ h1 {
   background: var(--blanc);
 
   /* Animation */
+}
+
+.bad {
+  border-color: var(--rose);
+}
+
+.cool {
+  border-color: var(--vert);
 }
 
 #answer-panel p {
@@ -385,4 +397,8 @@ h1 {
   /* Typographie */
   /* Couleur */
   /* Animation */
+}
+
+.vidnul {
+  content: url("./img/anime_pâté_nul.gif");
 }

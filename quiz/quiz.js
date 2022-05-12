@@ -18,14 +18,14 @@ let elements = {
   startCountdownContainer: document.querySelector("#start-countdown-container"),
   // L'élément parent des boutons de réponse
   answersContainer: document.querySelector("#answers-container"),
-  answerPanelContainer: document.querySelector("#answer-panel-container")
+  answerPanelContainer: document.querySelector("#answer-panel-container"),
+  answerPanel: document.querySelector("#answer-panel"),
 };
 
 const instaciateQuiz = () => {
-  let quiz = new QuizManager(7, elements);
+  let quiz = new QuizManager(1, elements);
   quiz.startCountdown();
-}
-
+};
 
 elements.startButton.addEventListener("click", instaciateQuiz);
 elements.restartButton.addEventListener("click", instaciateQuiz);
