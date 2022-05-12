@@ -17,6 +17,8 @@
 body {
   background: var(--blanc);
   overflow: hidden;
+  padding-top: 20%;
+  padding-bottom: 20%;
 }
 
 .medium {
@@ -45,7 +47,6 @@ body {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap: 3rem;
 
   /* Box Model */
   margin: 0 auto;
@@ -172,8 +173,7 @@ body {
   /* Box Model */
   height: 100px;
   border-radius: 50%;
-  box-shadow: var(--shadow-elevation-high);
-  margin-bottom: 2rem;
+  margin-bottom: 7rem;
   width: 100px;
 
   /* Positionnement */
@@ -326,12 +326,17 @@ body {
 
   /* Typographie */
   font-weight: 800;
+  text-align: center;
 
   /* Couleur */
   background: rgba(50, 50, 50, 0.5);
 
   /* Animation */
   transition: opacity 0.3s ease-in-out;
+}
+
+h1 {
+  color: var(--vert);
 }
 
 #answer-panel-container.visible {
@@ -352,7 +357,6 @@ body {
 
   /* Box Model */
   border-radius: 15px;
-  box-shadow: var(--shadow-elevation-high);
   padding: 1.5rem;
   width: 80%;
 
@@ -370,6 +374,7 @@ body {
 
   /* Box Model */
   margin-bottom: 2rem;
+  margin-top: 2rem;
 
   /* Positionnement */
   /* Typographie */
