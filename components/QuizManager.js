@@ -53,7 +53,7 @@ export class QuizManager {
     viewBox="0 0 213.6 183.49"
   >
   <linearGradient id="lg" x1="0.5" y1="1" x2="0.5" y2="0">
-  <stop offset="0'%" stop-opacity="1" stop-color="#009355"/>
+  <stop offset="0%" stop-opacity="1" stop-color="#009355"/>
   <stop class="updateable" offset="90%" stop-opacity="1" stop-color="#009355"/>
   <stop class="updateable" offset="90%" stop-opacity="0" stop-color="#009355"/>
   <stop offset="100%" stop-opacity="0" stop-color="#009355"/>
@@ -126,6 +126,7 @@ export class QuizManager {
       shapeStop.forEach((e) => {
         e.setAttribute("offset", `${this.timeRemaining / 100}%`);
       });
+      console.log(`${this.timeRemaining / 100}%`);
       this.timeRemaining = this.countdown - this.timer.getTime();
       if (this.state == this.Answered) {
         clearInterval(questionCountdown);
