@@ -176,7 +176,7 @@ export class QuizManager {
   showAnswerSequence(answer, index) {
     console.log(answer + "/" + index);
 
-    let scale = 1.2 + 0.2 * index;
+    let scale = 1.15 + 0.15 * index;
 
     let element = document.createElement("div");
     element.innerHTML = `<svg

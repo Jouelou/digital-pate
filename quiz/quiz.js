@@ -23,7 +23,7 @@ let elements = {
 };
 
 const instaciateQuiz = () => {
-  let quiz = new QuizManager(1, elements);
+  let quiz = new QuizManager(10, elements);
   quiz.startCountdown();
 };
 
