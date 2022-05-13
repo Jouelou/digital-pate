@@ -17,8 +17,13 @@
 }
 
 body {
-  background: var(--blanc);
   overflow: hidden;
+  background: rgb(0, 147, 85);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 147, 85, 0.5074404761904762) 0%,
+    rgba(255, 255, 255, 0) 43%
+  );
 }
 
 .medium {
@@ -186,7 +191,6 @@ body {
 
   /* Couleur */
   color: var(--noir);
-  background: var(--blanc);
 
   /* Animation */
 }
@@ -238,17 +242,17 @@ body {
   /*box-shadow: var(--shadow-elevation-high);*/
   margin: 0 0 5vmin 0;
   padding: 0.8rem;
-  border-style: dashed;
+  /*border-style: double;
   border-width: 2px;
-  border-color: var(--vert);
+  border-color: var(--);*/
 
   /* Positionnement */
 
   /* Typographie */
   font-family: aMedium;
   /* Couleur */
-  background-color: rgba(36, 200, 11, 0.099);
-
+  background-color: #c487514d;
+  color: #231000;
   /* Animation */
   animation: grow 0.5s ease-in-out;
   transition: background-color 0.2s ease-in-out;
@@ -366,8 +370,6 @@ h1 {
   border-radius: 20%;
   padding: 1.5rem;
   width: 80%;
-  border-style: dashed;
-  border-width: 0.7vmin;
 
   /* Positionnement */
   /* Typographie */

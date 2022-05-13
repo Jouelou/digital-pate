@@ -28,7 +28,7 @@
   --gris: #efefef;
   --noir: #1b1b1b;
   --blanc: #ffffff;
-  --rose: #e77474;
+  --rose: #df3a3a;
 
   --shadow-color: 155deg 100% 28%;
   --shadow-elevation-low: 0.3px 0.5px 0.7px hsl(var(--shadow-color) / 0.1),

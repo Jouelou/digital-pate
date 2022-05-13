@@ -335,7 +335,7 @@ export class QuizManager {
     // this.timerContainer.querySelector.
 
     let confettiEnd = Date.now() + 1 * 1000;
-    let confettiColors = ["#02F58F", "#ffffff"];
+    let confettiColors = ["#009355", "#ffffff"];
 
     // On balance des confettis quoi qu'il se passe à la fin de la partie.
     const launchConfetti = () => {
@@ -405,7 +405,7 @@ export class QuizManager {
     const overElements = [
       this.questionContainer,
       this.restartButton,
-      this.timerContainer,
+
       this.timerPate,
     ];
 
