@@ -23,23 +23,23 @@ body {
 }
 
 .medium {
-  /* font-family: aMedium; */
+  font-family: aMedium;
 }
 
 .regular {
-  /* font-family: aRegular; */
+  font-family: aRegular;
 }
 
 .bold {
-  /* font-family: aBold; */
+  font-family: aBold;
 }
 
 .light {
-  /* font-family: aLight; */
+  font-family: aLight;
 }
 
 .thin {
-  /* font-family: aThin; */
+  font-family: aThin;
 }
 
 #app {
@@ -88,7 +88,7 @@ body {
 
   /* Typographie */
   font-size: 5rem;
-  font-weight: 800;
+  font-family: aRegular;
 
   /* Couleur */
   /* Animation */
@@ -156,12 +156,17 @@ body {
 /* --- TIMER DE QUESTION --- */
 
 .answer-archive {
-  border: 1px solid var(--vert);
-  border-radius: 50%;
   position: absolute;
+  margin-top: 1rem;
   height: 20vmin;
   width: 20vmin;
   z-index: 0;
+}
+
+.pate-archive {
+  fill: none;
+  stroke-miterlimit: 10;
+  stroke-width: 2px;
 }
 
 #timer-container {
@@ -216,7 +221,6 @@ body {
 
   /* Typographie */
   font-size: 2rem;
-  font-weight: 600;
   text-align: center;
   /* Couleur */
   color: #ffffff;
@@ -243,8 +247,7 @@ body {
   /* Positionnement */
 
   /* Typographie */
-  font-weight: 800;
-
+  font-family: aMedium;
   /* Couleur */
   background-color: rgba(36, 200, 11, 0.099);
 
@@ -332,7 +335,6 @@ body {
   position: absolute;
 
   /* Typographie */
-  font-weight: 800;
   text-align: center;
 
   /* Couleur */
@@ -367,7 +369,7 @@ h1 {
   padding: 1.5rem;
   width: 80%;
   border-style: dashed;
-  border-width: 1.3vmin;
+  border-width: 0.7vmin;
 
   /* Positionnement */
   /* Typographie */
