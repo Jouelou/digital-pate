@@ -43,29 +43,26 @@ export class QuizManager {
     this.countdown = QUESTION_TIME;
     this.timeRemaining = QUESTION_TIME;
     this.timer = new Timer();
-    this.timerContainer.innerHTML = "";
-    this.timerText = document.createElement("p");
-    this.timerSVG = document.createElement("div");
 
-    this.timerSVG.innerHTML = `<svg
-    id="timer-pate"
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 213.6 183.49"
-  >
-  <linearGradient id="lg" x1="0.5" y1="1" x2="0.5" y2="0">
-  <stop offset="0%" stop-opacity="1" stop-color="#009355"/>
-  <stop class="updateable" offset="90%" stop-opacity="1" stop-color="#009355"/>
-  <stop class="updateable" offset="90%" stop-opacity="0" stop-color="#009355"/>
-  <stop offset="100%" stop-opacity="0" stop-color="#009355"/>
-</linearGradient>
-      <g id="Calque_2-2" data-name="Calque 2">
-        <path fill="url(#lg)" 
-          class="cls-1"
-          d="M209.54,73.55c2.1,2.25-2.55,6.6-4.19,7,0,0-.07,31.06-19.68,57.51s-21.24,32.54-33.75,38.76c-16.56,8.24-23.54,6.39-45.12,6.39s-28.56,1.85-45.12-6.39c-12.51-6.22-14.14-12.31-33.75-38.76S8.26,80.6,8.26,80.6c-1.65-.45-6.3-4.8-4.2-7C-.29,72.36-1,68.31,1.51,64.11c-2.24-3.74.3-9.59,5-9.59-.9-.44-.15-7.79,7.49-7.94,0,0,8.94-12.31,24-12.72-1.66-6.22,1.52-8.57,1.52-8.57s.27-4.42,2.9-5.81C40.48,7.57,73.07.05,106.8.05s66.32,7.52,64.42,19.43c2.63,1.39,2.91,5.81,2.91,5.81s3.17,2.35,1.52,8.57c15.06.41,24,12.72,24,12.72,7.64.15,8.39,7.5,7.49,7.94,4.65,0,7.2,5.85,5,9.59C214.64,68.31,213.89,72.36,209.54,73.55Z"
-        />
-      </g>
-  </svg>`;
-    this.timerContainer.appendChild(this.timerSVG);
+    let answerOutlines =
+      this.timerContainer.querySelectorAll(".answer-archive");
+    if (answerOutlines) {
+      answerOutlines.forEach((e) => {
+        e.remove();
+      });
+    }
+
+    let timerParagraphs = this.timerContainer.querySelectorAll("p");
+    if (timerParagraphs) {
+      timerParagraphs.forEach((e) => {
+        e.remove();
+      });
+    }
+
+    // this.timerContainer.querySelector("p").innerHTML = "";
+    this.timerText = document.createElement("p");
+    // this.timerSVG = document.createElement("div");
+    // this.timerContainer.appendChild(this.timerSVG);
     this.timerContainer.appendChild(this.timerText);
 
     // Score
