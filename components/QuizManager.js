@@ -59,6 +59,8 @@ export class QuizManager {
       });
     }
 
+    this.timerContainer.querySelector("svg").style.display = "block";
+
     // this.timerContainer.querySelector("p").innerHTML = "";
     this.timerText = document.createElement("p");
     // this.timerSVG = document.createElement("div");
@@ -316,6 +318,7 @@ export class QuizManager {
 
     this.answersContainer.innerHTML = "";
     this.timerContainer.querySelector("p").innerHTML = "";
+    this.timerContainer.querySelector("svg").style.display = "none";
     // C'est ici qu'on affiche le texte de l'écran de fin de partie. Le score est
     // calculé dans validateAnswer() et le mot de "félicitations" (ou pas) est
     // défini selon le score final dans la fonction endMessage()
@@ -323,9 +326,13 @@ export class QuizManager {
       this.score
     } points`;
 
-    let finalImage = document.createElement("img");
-    finalImage.setAttribute("src", "");
-    this.questionContainer.parentNode.appendChild(finalImage);
+    // if (this.score < 1000) {
+    //   let gif = (this.timerContainer.querySelector("#pate-nul").style.display =
+    //     "block");
+    //   gif.style.width = "80vw";
+    // }
+
+    // this.timerContainer.querySelector.
 
     let confettiEnd = Date.now() + 1 * 1000;
     let confettiColors = ["#02F58F", "#ffffff"];
@@ -363,7 +370,7 @@ export class QuizManager {
     } else if (this.score > 2000 && this.score < 5000) {
       message = "Joli joli";
     } else if (this.score > 5000) {
-      message = "'croyable, va chercher ton prix";
+      message = "'croyable";
     }
     return message;
   }

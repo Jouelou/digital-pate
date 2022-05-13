@@ -402,3 +402,7 @@ h1 {
 .vidnul {
   content: url("./img/anime_pâté_nul.gif");
 }
+
+.end-image {
+  display: none;
+}
