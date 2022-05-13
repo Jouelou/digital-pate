@@ -126,7 +126,7 @@ export class QuizManager {
       shapeStop.forEach((e) => {
         e.setAttribute("offset", `${this.timeRemaining / 100}%`);
       });
-      console.log(`${this.timeRemaining / 100}%`);
+      // console.log(`${this.timeRemaining / 100}%`);
       this.timeRemaining = this.countdown - this.timer.getTime();
       if (this.state == this.Answered) {
         clearInterval(questionCountdown);
