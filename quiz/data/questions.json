@@ -94,18 +94,18 @@
     }
   },
   {
-    "question": "Quel est l’accompagnement idéal du pâté vaudois ?",
+    "question": "Quel est la sauce idéale pour accompagner le pâté vaudois ?",
     "answers": [
       {
-        "text": "Lentilles, moutarde",
+        "text": "moutarde",
         "correct": true
       },
       {
-        "text": "Riz, sauce soja",
+        "text": "soja",
         "correct": false
       },
       {
-        "text": "Pâtes, mayonnaise",
+        "text": "ketchup",
         "correct": false
       }
     ],
@@ -136,18 +136,18 @@
     }
   },
   {
-    "question": "Quelle alcool retrouve-t-on le plus souvent dans la gelée du pâté vaudois ?",
+    "question": "Quel ingrédient retrouve-t-on le plus souvent dans la gelée du pâté vaudois ?",
     "answers": [
       {
         "text": "Porto",
         "correct": true
       },
       {
-        "text": "Williamine",
+        "text": "Lait",
         "correct": false
       },
       {
-        "text": "Whisky",
+        "text": "Thé froid",
         "correct": false
       }
     ],

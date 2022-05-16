@@ -64,6 +64,10 @@ export class QuizManager {
       e.style.display = "none";
     });
 
+    let body = document.querySelector("body");
+    body.style.background =
+      "linear-gradient(0deg,rgba(0, 147, 85, 0.5074404761904762) 0%,rgba(255, 255, 255, 0) 43%)";
+
     this.timerContainer.querySelector("svg").style.display = "block";
 
     // this.timerContainer.querySelector("p").innerHTML = "";
@@ -241,10 +245,16 @@ export class QuizManager {
       });
       this.answerPanel.classList.add("cool");
       this.answerPanel.classList.remove("bad");
+      let body = document.querySelector("body");
+      body.style.background =
+        "linear-gradient(0deg,rgba(0, 147, 85, 0.5074404761904762) 0%,rgba(255, 255, 255, 0) 43%)";
     } else {
       this.showAnswerSequence(0, this.questionIndex);
       this.answerPanel.classList.add("bad");
       this.answerPanel.classList.remove("cool");
+      let body = document.querySelector("body");
+      body.style.background =
+        "linear-gradient(0deg, rgba(223,58,58,1) 0%, rgba(255,255,255,0) 43%)";
 
       document
         .querySelector(":root")
@@ -333,11 +343,16 @@ export class QuizManager {
 
     if (this.score < 1000) {
       let gif1 = document.querySelector("#pate-nul");
-
       gif1.style.display = "block";
+      let body = document.querySelector("body");
+      body.style.background =
+        "linear-gradient(0deg, rgba(223,58,58,1) 0%, rgba(255,255,255,0) 43%)";
     } else {
       let gif2 = document.querySelector("#pate-bien");
       gif2.style.display = "block";
+      let body = document.querySelector("body");
+      body.style.background =
+        "linear-gradient(0deg,rgba(0, 147, 85, 0.5074404761904762) 0%,rgba(255, 255, 255, 0) 43%)";
     }
 
     // this.timerContainer.querySelector.

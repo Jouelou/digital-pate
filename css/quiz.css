@@ -16,6 +16,10 @@
   font-weight: 400;
 }
 
+.disclaimer {
+  display: none;
+}
+
 body {
   overflow: hidden;
   background: rgb(0, 147, 85);
