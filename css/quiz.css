@@ -410,5 +410,6 @@ h1 {
 
 .end-image {
   display: none;
-  width: 120vw;
+  width: 100vw;
+  object-position: 100% 0;
 }
