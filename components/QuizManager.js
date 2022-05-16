@@ -59,6 +59,11 @@ export class QuizManager {
       });
     }
 
+    let endImages = document.querySelectorAll(".end-image");
+    endImages.forEach((e) => {
+      e.style.display = "none";
+    });
+
     this.timerContainer.querySelector("svg").style.display = "block";
 
     // this.timerContainer.querySelector("p").innerHTML = "";
@@ -198,7 +203,7 @@ export class QuizManager {
 
     element.classList.add("answer-archive");
 
-    element.style.transform = `scale(${scale})`;
+    element.style.transform = `scale(${scale}) translateY(7px)`;
 
     if (answer === 1) {
       element.style.stroke = "var(--vert)";
@@ -324,13 +329,16 @@ export class QuizManager {
     // défini selon le score final dans la fonction endMessage()
     this.questionContainer.innerHTML = `${this.endMessage()}, t'as fait ${
       this.score
-    } points`;
+    } points / 10'000`;
 
-    // if (this.score < 1000) {
-    //   let gif = (this.timerContainer.querySelector("#pate-nul").style.display =
-    //     "block");
-    //   gif.style.width = "80vw";
-    // }
+    if (this.score < 1000) {
+      let gif1 = document.querySelector("#pate-nul");
+
+      gif1.style.display = "block";
+    } else {
+      let gif2 = document.querySelector("#pate-bien");
+      gif2.style.display = "block";
+    }
 
     // this.timerContainer.querySelector.
 

@@ -115,13 +115,18 @@ header {
 
 footer {
   margin-top: 2rem;
-  margin-bottom: 22rem;
   grid-column-start: 1;
   grid-column-end: 9;
   height: 52vh;
   display: grid;
   grid-template-columns: repeat(12, 8%);
   grid-template-rows: 40vh 30vh;
+  background: rgb(0, 147, 85);
+  background: linear-gradient(
+    0deg,
+    rgba(0, 147, 85, 0.5074404761904762) 0%,
+    rgba(255, 255, 255, 0) 43%
+  );
 }
 
 .Qtext {

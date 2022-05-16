@@ -23,7 +23,9 @@ let elements = {
 };
 
 const instaciateQuiz = () => {
-  let quiz = new QuizManager(10, elements);
+  // gif1.style.display = "hidden";
+  // gif2.style.display = "hidden";
+  let quiz = new QuizManager(1, elements);
   quiz.startCountdown();
 };
 

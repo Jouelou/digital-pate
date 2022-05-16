@@ -163,7 +163,6 @@ body {
   height: 100px;
   width: 100px;
   z-index: 0;
-  translate: 0px 7px;
 }
 
 .pate-archive {
@@ -251,8 +250,8 @@ body {
   /* Typographie */
   font-family: aMedium;
   /* Couleur */
-  background-color: #efd09f;
-  color: #231000;
+  background-color: #d5a962;
+  color: #351b06;
   /* Animation */
   animation: grow 0.5s ease-in-out;
   transition: background-color 0.2s ease-in-out;
@@ -407,4 +406,5 @@ h1 {
 
 .end-image {
   display: none;
+  width: 120vw;
 }
