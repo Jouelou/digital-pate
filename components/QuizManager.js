@@ -228,7 +228,9 @@ export class QuizManager {
         .correct
     ) {
       // C'est ici qu'on calcule le score en fonction du temps restant.
-      this.score = this.score + 1 * this.timeRemaining;
+      this.score = Math.round(
+        this.score + 1 * (this.timeRemaining / 1000) + 4.28
+      );
 
       // Si la réponse est juste, on ajoute la classe .correct au bouton de réponse.
       el.classList.add("correct");
@@ -337,22 +339,25 @@ export class QuizManager {
     // C'est ici qu'on affiche le texte de l'écran de fin de partie. Le score est
     // calculé dans validateAnswer() et le mot de "félicitations" (ou pas) est
     // défini selon le score final dans la fonction endMessage()
-    this.questionContainer.innerHTML = `${this.endMessage()}, t'as fait ${
-      this.score
-    } points / 10'000`;
 
-    if (this.score < 1000) {
+    if (this.score < 40) {
       let gif1 = document.querySelector("#pate-nul");
       gif1.style.display = "block";
       let body = document.querySelector("body");
       body.style.background =
         "linear-gradient(0deg, rgba(223,58,58,1) 0%, rgba(255,255,255,0) 43%)";
+      this.questionContainer.innerHTML = `${this.endMessage()}, t'as fait <span style="color:#df3a3a">${
+        this.score
+      }</span>/100 points!`;
     } else {
       let gif2 = document.querySelector("#pate-bien");
       gif2.style.display = "block";
       let body = document.querySelector("body");
       body.style.background =
         "linear-gradient(0deg,rgba(0, 147, 85, 0.5074404761904762) 0%,rgba(255, 255, 255, 0) 43%)";
+      this.questionContainer.innerHTML = `${this.endMessage()}, t'as fait <span style="color:#009355">${
+        this.score
+      }</span>/100 points!`;
     }
 
     // this.timerContainer.querySelector.
@@ -388,11 +393,11 @@ export class QuizManager {
   endMessage() {
     // À recalibrer selon le ton et les scores possibles dans le jeu.
     let message;
-    if (this.score < 1000) {
+    if (this.score < 40) {
       message = "Monstre nul";
-    } else if (this.score > 2000 && this.score < 5000) {
+    } else if (this.score >= 40 && this.score < 60) {
       message = "Joli joli";
-    } else if (this.score > 5000) {
+    } else if (this.score >= 60) {
       message = "'croyable";
     }
     return message;
