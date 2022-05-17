@@ -102,7 +102,7 @@ header {
 }
 
 .Ttuto {
-  width: 47vw;
+  width: 48vw;
   font-weight: 400;
   font-size: 7vmin;
 }
@@ -118,7 +118,7 @@ header {
 }
 
 footer {
-  margin-top: 2rem;
+  margin-top: 40vmin;
   grid-column-start: 1;
   grid-column-end: 9;
   height: 52vh;
