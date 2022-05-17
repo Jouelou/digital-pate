@@ -376,7 +376,7 @@ h1 {
   /* Display */
 
   /* Box Model */
-  border-radius: 20%;
+  border-radius: 10vmin;
   padding: 1.5rem;
   width: 80%;
 
