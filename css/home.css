@@ -173,16 +173,25 @@ footer {
   left: 20vmin;
   top: 158vh;
   z-index: 0;
-  height: 120%;
+  height: 125%;
   border-left: 3px dashed #009355;
   opacity: 0.3;
 }
 
 .pateOutline {
   fill: green;
-  fill-opacity: 0.2;
+
   position: absolute;
   left: 15vmin;
-  top: 150vh;
+
   width: 12vmin;
+}
+
+.haut {
+  top: 150vh;
+  fill-opacity: 0.2;
+}
+
+.bas {
+  top: 285vh;
 }
