@@ -32,6 +32,7 @@ body {
     rgba(0, 147, 85, 0.5074404761904762) 0%,
     rgba(255, 255, 255, 0) 43%
   );
+  touch-action: pan-x pan-y;
 }
 
 .medium {
