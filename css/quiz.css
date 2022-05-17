@@ -410,7 +410,7 @@ h1 {
 
 .end-image {
   display: none;
-  max-width: 130vmin;
+  max-width: 100vmin;
   object-fit: cover;
 }
 
@@ -418,6 +418,6 @@ h1 {
   width: 70vw;
   height: 50vw;
   position: absolute;
-  top: 27vmin;
-  right: 43vmin;
+  top: 24vmin;
+  right: 28vmin;
 }
