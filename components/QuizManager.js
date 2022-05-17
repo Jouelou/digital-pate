@@ -167,6 +167,7 @@ export class QuizManager {
     answers.forEach((answer) => {
       let answerElement = document.createElement("div");
       answerElement.classList.add("button");
+      answerElement.classList.add("disable-dbl-tap-zoom");
       answerElement.innerHTML = answer.text;
 
       // On ajoute l'élément créé comme enfant du "answers container" qui se trouve,

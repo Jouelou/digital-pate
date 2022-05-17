@@ -7,6 +7,10 @@
   }
 }
 
+.disable-dbl-tap-zoom {
+  touch-action: manipulation;
+}
+
 * {
   -webkit-user-select: none; /* Safari */
   -moz-user-select: none; /* Firefox */
