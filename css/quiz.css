@@ -410,6 +410,14 @@ h1 {
 
 .end-image {
   display: none;
-  width: 100vw;
-  object-position: 100% 0;
+  max-width: 130vmin;
+  object-fit: cover;
+}
+
+.gifpate {
+  width: 70vw;
+  height: 50vw;
+  position: absolute;
+  top: 27vmin;
+  right: 43vmin;
 }

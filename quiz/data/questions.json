@@ -22,7 +22,8 @@
     "panel": {
       "title": "On ne sait pas",
       "body": "C’est bel et bien dans le canton de Vaud et alentours qu’il est le plus consommé ! Malgré cela son origine exacte reste inconnue. "
-    }
+    },
+    "artiviv": "true"
   },
   {
     "question": "À partir de quand ont été produits les pâtés dans le canton de Vaud ?",
@@ -43,7 +44,8 @@
     "panel": {
       "title": "Première moitié du XXe siècle",
       "body": "Les pâtés à la viande sont produits dans le canton de Vaud et les régions proches depuis la première moitié du 20ème siècle"
-    }
+    },
+    "artiviv": "false"
   },
   {
     "question": "Quelle est la quantité de production annuelle de pâtés à la viande au niveau national ?",
@@ -67,7 +69,8 @@
     "panel": {
       "title": "5 millions de pièces",
       "body": "La production annuelle de pâtés à la viande peut être estimée à 5 millions de pièces au niveau national. Les principaux ateliers de fabrication industrielle sont à Böckten BL (Le Patron/Orior) et Ecublens VD (Jowa – Migros)."
-    }
+    },
+    "artiviv": "false"
   },
   {
     "question": "Quelle est la part de production artisanale de pâtés en Suisse romande ?",
@@ -91,7 +94,8 @@
     "panel": {
       "title": "10%",
       "body": "La fabrication artisanale par les petits artisans boulangers ou bouchers en Suisse romande et particulièrement dans le canton de Vaud ne doit pas dépasser 10% de la production totale."
-    }
+    },
+    "artiviv": "false"
   },
   {
     "question": "Quel est la sauce idéale pour accompagner le pâté vaudois ?",
@@ -112,7 +116,8 @@
     "panel": {
       "title": "Lentilles, moutarde",
       "body": "Bien apprécié accompagné de moutarde, c'est un plat que l'on mange le plus souvent au souper"
-    }
+    },
+    "artiviv": "true"
   },
   {
     "question": "Dans quoi sont fabriqués les pâtés ? ",
@@ -133,7 +138,8 @@
     "panel": {
       "title": "Dans des moules en aluminium à usage unique",
       "body": "Par gain de temps, il est fabriqué aujourd’hui dans des moules en aluminium à usage unique"
-    }
+    },
+    "artiviv": "false"
   },
   {
     "question": "Quel ingrédient retrouve-t-on le plus souvent dans la gelée du pâté vaudois ?",
@@ -154,7 +160,8 @@
     "panel": {
       "title": "Porto",
       "body": "On peut aromatiser la gelée avec un alcool à choix (Porto, madère, cognac, etc.)"
-    }
+    },
+    "artiviv": "true"
   },
   {
     "question": "À quoi sert la cheminée en pâte au-dessus du pâté ?",
@@ -175,7 +182,8 @@
     "panel": {
       "title": "Couler la gelée une fois la pâte cuite",
       "body": "Une fois le pâté refroidi, on introduit la gelée par la cheminée. Ainsi le pâté est hermétiquement fermé"
-    }
+    },
+    "artiviv": "false"
   },
   {
     "question": "Quelle est la bonne cuisson du pâté",
@@ -196,7 +204,8 @@
     "panel": {
       "title": "1h à 200°",
       "body": "Pendant la cuisson (200°C, une heure environ), l’humidité issue de la cuisson de la farce s’échappe par la cheminée."
-    }
+    },
+    "artiviv": "false"
   }
   
 ]

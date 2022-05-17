@@ -339,6 +339,7 @@ export class QuizManager {
     // C'est ici qu'on affiche le texte de l'écran de fin de partie. Le score est
     // calculé dans validateAnswer() et le mot de "félicitations" (ou pas) est
     // défini selon le score final dans la fonction endMessage()
+    let confettiColors = ["#009355", "#ffffff"];
 
     if (this.score < 40) {
       let gif1 = document.querySelector("#pate-nul");
@@ -349,6 +350,7 @@ export class QuizManager {
       this.questionContainer.innerHTML = `${this.endMessage()}, t'as fait <span style="color:#df3a3a">${
         this.score
       }</span>/100 points!`;
+      confettiColors = ["#df3a3a", "#ffffff"];
     } else {
       let gif2 = document.querySelector("#pate-bien");
       gif2.style.display = "block";
@@ -363,7 +365,6 @@ export class QuizManager {
     // this.timerContainer.querySelector.
 
     let confettiEnd = Date.now() + 1 * 1000;
-    let confettiColors = ["#009355", "#ffffff"];
 
     // On balance des confettis quoi qu'il se passe à la fin de la partie.
     const launchConfetti = () => {
