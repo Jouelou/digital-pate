@@ -33,7 +33,7 @@
         "correct": true
       },
       {
-        "text": "XVIII siècle",
+        "text": "XVIIIe siècle",
         "correct": false
       },
       {
@@ -98,7 +98,7 @@
     "artiviv": "false"
   },
   {
-    "question": "Quel est la sauce idéale pour accompagner le pâté vaudois ?",
+    "question": "Quelle est la sauce idéale pour accompagner le Pâté Vaudois ?",
     "answers": [
       {
         "text": "moutarde",
@@ -186,7 +186,7 @@
     "artiviv": "false"
   },
   {
-    "question": "Quelle est la bonne cuisson du pâté",
+    "question": "Quelle est la bonne cuisson du pâté ?",
     "answers": [
       {
         "text": "1h à 200°",
